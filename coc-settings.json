@@ -1,0 +1,133 @@
+{
+    "codeLens.enable":  true,
+    "diagnostic.enable": true,
+    "diagnostic.messageTarget":"float",
+    "diagnostic.virtualText": true,
+    "diagnostic.refreshOnInsertMode": false,
+    "diagnostic.virtualTextPrefix": "‣ ",
+    "diagnostic.displayByAle": false,
+    "diagnostic.checkCurrentLine": true,
+    "diagnostic.errorSign": "✖",
+    "diagnostic.warningSign": "⚠",
+    "diagnostic.infoSign": "ℹ",
+    "diagnostic.hintSign": "ℹ",
+    "refactor.afterContext": 2,
+    "refactor.beforeContext": 2,
+    "suggest.autoTrigger": "always",
+    "suggest.acceptSuggestionOnCommitCharacter": true,
+    "suggest.echodocSupport": false,
+    "suggest.maxCompleteItemCount": 100,
+    "suggest.enablePreview": true,
+    "suggest.floatEnable": true,
+    "suggest.localityBonus": true,
+    "signature.enable": true,
+    "signature.target": "float",
+    "project.rootPatterns": [
+        ".env",
+        "pipreq.txt",
+        "manage.py",
+        "venv",
+        "requirements.txt",
+        "package.json",
+        "Cargo.toml",
+        ".git"
+    ],
+    "coc.preferences.rootPatterns": [
+        ".vim",
+        ".git",
+        ".hg",
+        ".root",
+        ".projections.json"
+    ],
+    "python.jediEnabled": false,
+    "python.autoComplete.showAdvancedMembers": false,
+    "python.linting.enabled": true,
+    "python.analysis.downloadChannel": "stable",
+    "python.analysis.diagnosticEnabled": true,
+    "python.workspaceSymbols.rebuildOnStart": false,
+    "python.linting.pylintEnabled": false,
+    "python.linting.mypyEnabled": true,
+    "python.analysis.cachingLevel": "Library",
+
+    "python.linting.pylintArgs": [
+        "--disable=W1401,C0111",
+        "-E"
+    ],
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--append-config='select=B,E,F,W,I,C'",
+        "--max-line-length=88"
+    ],
+    "python.formatting.provider": "black",
+    "python.sortImports.path": "isort",
+    "python.sortImports.args": ["-sp", "/Users/wwnbb/.isort.cfg"],
+    "coc.preferences.formatOnSaveFiletypes": ["python"],
+    "importCost.typescriptExtensions": [
+        "\\.tsx?$"
+    ],
+    "importCost.javascriptExtensions": [
+        "\\.jsx?$"
+    ],
+    "importCost.bundleSizeDecoration": "both",
+    "importCost.showCalculatingDecoration": true,
+    "importCost.debug": false,
+    "prettier.requireConfig": true,
+    "eslint.autoFixOnSave": true,
+    "tsserver.enableJavascript": true,
+    "languageserver": {
+        "ocaml": {
+            "command": "ocaml-language-server",
+            "args": ["--stdio"],
+            "filetypes": ["ocaml", "reason"],
+            "rootPatterns": [".git/"]
+        },
+        "lua": {
+            "command": "lua-lsp",
+            "filetypes": ["lua"]
+        },
+        "dockerfile": {
+            "command": "docker-langserver",
+            "filetypes": ["Dockerfile"],
+            "args": ["--stdio"]
+        },
+        "elixir": {
+            "command": "elixir-ls",
+            "filetypes": ["elixir", "eelixir"]
+        },
+        "bingo": {
+            "command": "bingo",
+            "args": [
+                "--diagnostics-style=instant",
+                "--format-style=goimports"
+            ],
+            "rootPatterns": [
+                "go.mod",
+                ".git/"
+            ],
+            "filetypes": [
+                "ago"
+            ]
+        },
+        "ccls": {
+          "command": "ccls",
+          "filetypes": ["c", "cpp", "objc", "objcpp"],
+          "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+          "initializationOptions": {
+            "cache": {
+              "directory": "/tmp/ccls"
+            }
+          }
+        }
+    },
+    "git.enableGutters": true,
+    "git.realtimeGutters": true,
+    "git.addGBlameToVirtualText": false,
+    "git.addGBlameToBufferVar": false,
+
+    "git.changedSign.hlGroup": "GruvboxAquaSign",
+    "git.addedSign.hlGroup": "GruvboxGreenSign",
+    "git.removedSign.hlGroup": "GruvboxRedSign",
+    "git.topRemovedSign.hlGroup": "GruvboxRedSign",
+    "git.changeRemovedSign.hlGroup": "GruvboxPurpleSign",
+    "coc.preferences.extensionUpdateCheck": "daily"
+}
