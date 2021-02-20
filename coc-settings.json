@@ -39,28 +39,6 @@
         ".root",
         ".projections.json"
     ],
-    "python.jediEnabled": false,
-    "python.autoComplete.showAdvancedMembers": false,
-    "python.linting.enabled": true,
-    "python.analysis.downloadChannel": "stable",
-    "python.analysis.diagnosticEnabled": true,
-    "python.workspaceSymbols.rebuildOnStart": false,
-    "python.linting.pylintEnabled": false,
-    "python.linting.mypyEnabled": true,
-    "python.analysis.cachingLevel": "Library",
-
-    "python.linting.pylintArgs": [
-        "--disable=W1401,C0111",
-        "-E"
-    ],
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": [
-        "--append-config='select=B,E,F,W,I,C'",
-        "--max-line-length=88"
-    ],
-    "python.formatting.provider": "black",
-    "python.sortImports.path": "isort",
-    "python.sortImports.args": ["-sp", "/Users/wwnbb/.isort.cfg"],
     "coc.preferences.formatOnSaveFiletypes": ["python"],
     "importCost.typescriptExtensions": [
         "\\.tsx?$"

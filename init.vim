@@ -26,6 +26,7 @@ Plug 'fatih/vim-go'
 Plug 'leafgarland/typescript-vim'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'puremourning/vimspector'
+Plug 'cespare/vim-toml'
 
 call plug#end()
 
@@ -34,6 +35,7 @@ set termguicolors
 syntax on
 filetype indent plugin on
 set background=dark
+set t_Co=256
 colo solarized8_high
 
 
@@ -55,15 +57,12 @@ tnoremap <Esc> <C-\><C-n>
 
 au BufNewFile,BufRead *.c,*.cpp,*.h,*.hcc nmap <leader>b :!make && ./a.out<CR>
 
-" distraction free mode
-nnoremap <silent> <F11> :Goyo<CR>
-
 " Filetype settings
 au BufNewFile,BufRead *.vim setlocal noet ts=2 sw=2 sts=2 expandtab
 au BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
 au BufNewFile,BufRead *.md setlocal noet ts=4 sw=4
 au BufNewFile,BufRead Dockerfile setlocal noet ts=4 sw=4
-au BufNewFile,BufRead *.proto setlocal noet ts=4 sw=4
+au BufNewFile,BufRead *.proto setlocal noet ts=2 sw=2
 
 
 " python
@@ -144,34 +143,19 @@ let g:mapleader = ","
 nnoremap <leader>f :<C-u>Rg<CR>
 nnoremap <leader>m :make<CR>
 " Easy indents
-vnoremap < <gv
-vnoremap > >gv
+vnoremap <silent> < <gv
+vnoremap <silent> > >gv
 nmap <silent> < <<
 nmap <silent> > >>
 
 nmap <silent> k gk
 nmap <silent> j gj
 
-" Remove search highlight
-nnoremap <leader><space> :nohlsearch<CR>
-nnoremap <silent> gd :YcmCompleter GoTo<CR>
-nnoremap <silent> gdt :tab split \| YcmCompleter GoToDefinition<CR>
-nnoremap <silent> gds :sb \| YcmCompleter GoToDefinition<CR>
-
 " Better split switching
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-nmap <leader>) :tabn<CR>
-nmap <leader>( :tabp<CR>
-nmap ¬ :tabn<CR>
-nmap ˙ :tabp<CR>
-
-nmap <leader>h :Explore<CR>
-
-
-
 
 " Scrolling options
 set scrolljump=5
@@ -227,12 +211,6 @@ endfunction
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format)
-nmap <leader>f  <Plug>(coc-format)
 
 augroup mygroup
   autocmd!
@@ -293,6 +271,17 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 
+nnoremap <silent> <space>m :make vtest<bar>copen
+
+nnoremap <silent> <space>vt :vert term<CR>
+nnoremap <silent> <space>tt :tab term<CR>
+nnoremap <silent> <space>tn :tabnew<CR>
+
+nnoremap <silent> <space>f :Files<CR>
+nnoremap <silent> <space>s :Ag<CR>
+
+
+
 set noshowmatch                 " Do not show matching brackets by flickering
 set cursorline
 set nocursorcolumn
@@ -311,3 +300,4 @@ set autowrite                   " Automatically save before :next, :make etc.
 set autoread                    " Automatically reread changed files without asking me anything
 set laststatus=2
 set pumheight=5
+
