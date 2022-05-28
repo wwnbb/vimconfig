@@ -1,37 +1,36 @@
 {
     "codeLens.enable":  true,
+
+    // diagnostic
     "diagnostic.enable": true,
+    //"diagnostic.virtualText": true,
     "diagnostic.messageTarget":"float",
-    "diagnostic.virtualText": true,
     "diagnostic.refreshOnInsertMode": false,
-    "diagnostic.virtualTextPrefix": "‣ ",
-    "diagnostic.displayByAle": false,
+    // "diagnostic.virtualTextPrefix": " ⤏ ",
     "diagnostic.checkCurrentLine": true,
-    "diagnostic.errorSign": "✖",
-    "diagnostic.warningSign": "⚠",
-    "diagnostic.infoSign": "ℹ",
-    "diagnostic.hintSign": "ℹ",
+    "diagnostic.errorSign": "E",
+    "diagnostic.warningSign": "W",
+    "diagnostic.infoSign": "!",
+    "diagnostic.hintSign": "?",
+    "diagnostic.virtualTextCurrentLineOnly": true,
+    // 
+
+    //
     "refactor.afterContext": 2,
     "refactor.beforeContext": 2,
+    //
+
+    //
     "suggest.autoTrigger": "always",
     "suggest.acceptSuggestionOnCommitCharacter": true,
-    "suggest.echodocSupport": false,
     "suggest.maxCompleteItemCount": 100,
     "suggest.enablePreview": true,
     "suggest.floatEnable": true,
     "suggest.localityBonus": true,
     "signature.enable": true,
+    //
+
     "signature.target": "float",
-    "project.rootPatterns": [
-        ".env",
-        "pipreq.txt",
-        "manage.py",
-        "venv",
-        "requirements.txt",
-        "package.json",
-        "Cargo.toml",
-        ".git"
-    ],
     "coc.preferences.rootPatterns": [
         ".vim",
         ".git",
@@ -39,64 +38,23 @@
         ".root",
         ".projections.json"
     ],
-    "coc.preferences.formatOnSaveFiletypes": ["python"],
-    "importCost.typescriptExtensions": [
-        "\\.tsx?$"
-    ],
-    "importCost.javascriptExtensions": [
-        "\\.jsx?$"
-    ],
-    "importCost.bundleSizeDecoration": "both",
-    "importCost.showCalculatingDecoration": true,
-    "importCost.debug": false,
-    "prettier.requireConfig": true,
-    "eslint.autoFixOnSave": true,
-    "tsserver.enableJavascript": true,
+
+    "coc.preferences.formatOnSaveFiletypes": ["python", "go"],
+    "python.linting.lintOnSave": true,
+    "python.linting.flake8Enabled": true,
+    "python.analysis.autoImportCompletions": true,
+    "python.formatting.provider": "black",
+    "python.linting.mypyEnabled": true,
+
     "languageserver": {
-        "ocaml": {
-            "command": "ocaml-language-server",
-            "args": ["--stdio"],
-            "filetypes": ["ocaml", "reason"],
-            "rootPatterns": [".git/"]
-        },
-        "lua": {
-            "command": "lua-lsp",
-            "filetypes": ["lua"]
-        },
         "dockerfile": {
             "command": "docker-langserver",
             "filetypes": ["Dockerfile"],
             "args": ["--stdio"]
-        },
-        "elixir": {
-            "command": "elixir-ls",
-            "filetypes": ["elixir", "eelixir"]
-        },
-        "bingo": {
-            "command": "bingo",
-            "args": [
-                "--diagnostics-style=instant",
-                "--format-style=goimports"
-            ],
-            "rootPatterns": [
-                "go.mod",
-                ".git/"
-            ],
-            "filetypes": [
-                "ago"
-            ]
-        },
-        "ccls": {
-          "command": "ccls",
-          "filetypes": ["c", "cpp", "objc", "objcpp"],
-          "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
-          "initializationOptions": {
-            "cache": {
-              "directory": "/tmp/ccls"
-            }
-          }
         }
     },
+
+    //
     "git.enableGutters": true,
     "git.realtimeGutters": true,
     "git.addGBlameToVirtualText": false,
@@ -107,5 +65,9 @@
     "git.removedSign.hlGroup": "GruvboxRedSign",
     "git.topRemovedSign.hlGroup": "GruvboxRedSign",
     "git.changeRemovedSign.hlGroup": "GruvboxPurpleSign",
-    "coc.preferences.extensionUpdateCheck": "daily"
+    //
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "go.goplsOptions": {
+        "gofumpt": true
+  }
 }
