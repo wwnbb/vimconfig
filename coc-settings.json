@@ -3,16 +3,15 @@
 
     // diagnostic
     "diagnostic.enable": true,
-    //"diagnostic.virtualText": true,
+    "diagnostic.virtualText": true,
     "diagnostic.messageTarget":"float",
     "diagnostic.refreshOnInsertMode": false,
-    // "diagnostic.virtualTextPrefix": " ⤏ ",
+    "diagnostic.virtualTextPrefix": " ⤏ ",
     "diagnostic.checkCurrentLine": true,
     "diagnostic.errorSign": "E",
     "diagnostic.warningSign": "W",
     "diagnostic.infoSign": "!",
     "diagnostic.hintSign": "?",
-    "diagnostic.virtualTextCurrentLineOnly": true,
     // 
 
     //

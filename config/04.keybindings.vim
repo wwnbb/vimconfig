@@ -14,7 +14,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <leader>n <Plug>(coc-rename)
+nmap <space>n <Plug>(coc-rename)
 
 " Easy most-recent-buffer switching
 nnoremap <silent> <space>b :Buffers<CR>
@@ -141,12 +141,12 @@ endif
 
 nnoremap <leader>/ :%s/
 
-nnoremap <leader>dh :lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <leader>b :lua require'dap'.toggle_breakpoint()<CR>
 nnoremap <S-k> :lua require'dap'.step_out()<CR>
 nnoremap <S-l> :lua require'dap'.step_into()<CR>
 nnoremap <S-j> :lua require'dap'.step_over()<CR>
 nnoremap <leader>ds :lua require'dap'.stop()<CR>
-nnoremap <leader>dn :lua require'dap'.continue()<CR>
+nnoremap <leader>dc :lua require'dap'.continue()<CR>
 nnoremap <leader>dk :lua require'dap'.up()<CR>
 nnoremap <leader>dj :lua require'dap'.down()<CR>
 nnoremap <leader>d_ :lua require'dap'.disconnect();require'dap'.stop();require'dap'.run_last()<CR>
