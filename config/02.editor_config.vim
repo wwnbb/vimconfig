@@ -54,3 +54,6 @@ au BufNewFile,BufRead *.go setlocal noet ts=8 sw=8 sts=8
 "
 au BufNewFile,BufRead *.py setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 
+"############# lua ##############
+"
+au BufNewFile,BufRead *.lua setlocal et ts=2 sw=2 sts=2

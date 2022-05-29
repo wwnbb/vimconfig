@@ -20,6 +20,9 @@ Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'vim-test/vim-test'
+Plug 'rcarriga/vim-ultest', { 'do': ':UpdateRemotePlugins' }
+
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
