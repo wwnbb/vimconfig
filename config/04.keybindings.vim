@@ -141,11 +141,11 @@ endif
 
 nnoremap <leader>/ :%s/
 
-nnoremap <leader>b :lua require'dap'.toggle_breakpoint()<CR>
-nnoremap <S-k> :lua require'dap'.step_out()<CR>
-nnoremap <S-l> :lua require'dap'.step_into()<CR>
-nnoremap <S-j> :lua require'dap'.step_over()<CR>
-nnoremap <leader>ds :lua require'dap'.stop()<CR>
+nnoremap <silent><leader>b :lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <silent><space>k :lua require'dap'.step_out()<CR>
+nnoremap <silent><space>l :lua require'dap'.step_into()<CR>
+nnoremap <silent><space>j :lua require'dap'.step_over()<CR>
+nnoremap <leader>ds :lua require'dap'.close()<CR>
 nnoremap <leader>dc :lua require'dap'.continue()<CR>
 nnoremap <leader>dk :lua require'dap'.up()<CR>
 nnoremap <leader>dj :lua require'dap'.down()<CR>
