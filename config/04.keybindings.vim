@@ -109,38 +109,6 @@ nmap <silent> ]l :lp<cr>
 nmap <leader>cl  <Plug>(coc-codelens-action)
 
 " DAP
-
-
-
-"########################################
-
-
-
-
-"############### COMMANDS ################
-"
-" Use ; for commands
-nnoremap ; :
-
-" Delete trailing whitespace with F5
-:nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
-"#########################################
-
-
-"############### EDITOR MISC #############
-" change working directory to where the file in the buffer is located
-" if user types `,cd`
-nnoremap <space>d :cd %:p:h<CR>:pwd<CR>
-
-nnoremap <silent> <space>c :e $NVIM_CONFIG<CR>
-
-if has("nvim")
-  au! TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
-  au! FileType fzf tunmap <buffer> <Esc>
-endif
-
-nnoremap <leader>/ :%s/
-
 nnoremap <silent><leader>b :lua require'dap'.toggle_breakpoint()<CR>
 nnoremap <silent><space>k :lua require'dap'.step_out()<CR>
 nnoremap <silent><space>l :lua require'dap'.step_into()<CR>
@@ -159,5 +127,40 @@ nnoremap <leader>da :lua require'debugHelper'.attach()<CR>
 nnoremap <leader>dA :lua require'debugHelper'.attachToRemote()<CR>
 nnoremap <leader>di :lua require'dap.ui.widgets'.hover()<CR>
 nnoremap <leader>d? :lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>
+
+
+
+"########################################
+
+
+
+
+"############### COMMANDS ################
+"
+" Use ; for commands
+nnoremap ; :
+
+" Delete trailing whitespace with F5
+:nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+
+nnoremap <leader>l :redir @+<CR>:echom join([expand('%'),  line(".")], ':')<CR>:redir END<CR>
+
+"#########################################
+
+
+"############### EDITOR MISC #############
+" change working directory to where the file in the buffer is located
+" if user types `,cd`
+nnoremap <space>d :cd %:p:h<CR>:pwd<CR>
+
+nnoremap <silent> <space>c :e $NVIM_CONFIG<CR>
+
+if has("nvim")
+  au! TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+  au! FileType fzf tunmap <buffer> <Esc>
+endif
+
+nnoremap <leader>/ :%s/
+
 
 "#########################################

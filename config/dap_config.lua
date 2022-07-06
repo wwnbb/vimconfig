@@ -33,25 +33,25 @@ require("dapui").setup({
     -- Expand lines larger than the window
     -- Requires >= 0.7
     expand_lines = vim.fn.has("nvim-0.7"),
-    sidebar = {
-      -- You can change the order of elements in the sidebar
-      elements = {
-        -- Provide as ID strings or tables with "id" and "size" keys
-        {
-          id = "scopes",
-          size = 0.25, -- Can be float or integer > 1
+    layouts = {
+      {
+        elements = {
+          'scopes',
+          'breakpoints',
+          'stacks',
+          'watches',
         },
-        { id = "breakpoints", size = 0.25 },
-        { id = "stacks", size = 0.25 },
-        { id = "watches", size = 00.25 },
+        size = 40,
+        position = 'left',
       },
-      size = 40,
-      position = "left", -- Can be "left", "right", "top", "bottom"
-    },
-    tray = {
-      elements = { "repl" },
-      size = 10,
-      position = "bottom", -- Can be "left", "right", "top", "bottom"
+      {
+        elements = {
+          'repl',
+          'console',
+        },
+        size = 10,
+        position = 'bottom',
+      },
     },
     floating = {
       max_height = nil, -- These can be integers or a float between 0 and 1.
@@ -77,32 +77,3 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
-
-require("ultest").setup({
-    builders = {
-      ["go#gotest"] = function(cmd)
-        local args = {}
-        for i = 3, #cmd - 1, 1 do
-          local arg = cmd[i]
-          if vim.startswith(arg, "-") then
-            -- Delve requires test flags be prefix with 'test.'
-            arg = "-test." .. string.sub(arg, 2)
-          end
-          args[#args + 1] = arg
-        end
-        return {
-          dap = {
-            type = "go",
-            request = "launch",
-            mode = "test",
-            program = "${workspaceFolder}",
-            dlvToolPath = vim.fn.exepath("dlv"),
-            args = args
-          },
-          parse_result = function(lines)
-            return lines[#lines] == "FAIL" and 1 or 0
-          end
-        }
-      end
-    }
-  })

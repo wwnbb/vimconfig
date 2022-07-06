@@ -39,11 +39,6 @@
     ],
 
     "coc.preferences.formatOnSaveFiletypes": ["python", "go"],
-    "python.linting.lintOnSave": true,
-    "python.linting.flake8Enabled": true,
-    "python.analysis.autoImportCompletions": true,
-    "python.formatting.provider": "black",
-    "python.linting.mypyEnabled": true,
 
     "languageserver": {
         "dockerfile": {
@@ -52,6 +47,10 @@
             "args": ["--stdio"]
         }
     },
+
+    "python.formatting.provider": "black",
+    "python.linting.flake8Enabled": true,
+    "python.linting.mypyEnabled": false,
 
     //
     "git.enableGutters": true,
