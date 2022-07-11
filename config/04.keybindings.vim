@@ -123,13 +123,21 @@ nnoremap <leader>di :lua require'dap.ui.variables'.hover()<CR>
 vnoremap <leader>di :lua require'dap.ui.variables'.visual_hover()<CR>
 nnoremap <leader>d? :lua require'dap.ui.variables'.scopes()<CR>
 nnoremap <leader>de :lua require'dap'.set_exception_breakpoints({"all"})<CR>
-nnoremap <leader>da :lua require'debugHelper'.attach()<CR>
-nnoremap <leader>dA :lua require'debugHelper'.attachToRemote()<CR>
 nnoremap <leader>di :lua require'dap.ui.widgets'.hover()<CR>
 nnoremap <leader>d? :lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>
 
 
+" NEOTEST
+nnoremap <silent><leader>ti :lua require("neotest").output.open({ enter = true })<CR>
+nnoremap <silent><leader>tr :lua require("neotest").run.run()<CR>
+nnoremap <silent><leader>tc :lua require("neotest").run.run({strategy="dap"})<CR>
+nnoremap <silent><leader>tf :lua require("neotest").run.run(vim.fn.expand("%"))<CR>
+nnoremap <silent><leader>tw :lua require("neotest").run.run({suite=true})<CR>
+nnoremap <silent><leader>tm :lua require("neotest").summary.toggle()<CR>
 
+
+ nnoremap <silent>[n <cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>
+ nnoremap <silent>]n <cmd>lua require("neotest").jump.next({ status = "failed" })<CR>
 "########################################
 
 
