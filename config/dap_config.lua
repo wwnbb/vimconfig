@@ -6,6 +6,8 @@ dap.adapters.go = {
   args = {os.getenv('NVIM_CONFIG') .. '/dist/debugAdapter.js'};
 }
 
+require('dap.ext.vscode').load_launchjs('~/.config/nvim/config/launch.json', nil)
+
 require('dap-go').setup()
 
 require("nvim-dap-virtual-text").setup()
