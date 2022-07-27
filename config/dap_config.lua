@@ -8,9 +8,10 @@ dap.adapters.go = {
 
 require('dap.ext.vscode').load_launchjs('~/.config/nvim/config/launch.json', nil)
 
+require("nvim-dap-virtual-text").setup()
+
 require('dap-go').setup()
 
-require("nvim-dap-virtual-text").setup()
 
 require("dapui").setup({
     icons = { expanded = "▾", collapsed = "▸" },
