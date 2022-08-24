@@ -1,12 +1,16 @@
 call plug#begin()
 Plug 'Shougo/neosnippet-snippets'
+
 Plug 'sheerun/vim-polyglot'
+Plug 'isobit/vim-caddyfile'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'icymind/NeoSolarized'
 Plug 'Shougo/neoinclude.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'terrortylor/nvim-comment'
 
 "Debugger
 Plug 'mfussenegger/nvim-dap'

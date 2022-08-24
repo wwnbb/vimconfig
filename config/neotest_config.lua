@@ -87,3 +87,22 @@ require("neotest").setup({
       }
     }
   })
+
+vim.cmd([[ 
+   hi default NeotestPassed ctermfg=Green guifg=#96F291 
+   hi default NeotestFailed ctermfg=Red guifg=#F70067 
+   hi default NeotestRunning ctermfg=Blue guifg=##2709D2
+   hi default NeotestSkipped ctermfg=Cyan guifg=#00f1f5 
+   hi default link NeotestTest Normal
+   hi default NeotestNamespace ctermfg=Magenta guifg=#D484FF 
+   hi default NeotestFocused gui=bold,underline cterm=bold,underline 
+   hi default NeotestFile ctermfg=Cyan guifg=#00f1f5 
+   hi default NeotestDir ctermfg=Cyan guifg=#00f1f5 
+   hi default NeotestIndent ctermfg=Grey guifg=#8B8B8B 
+   hi default NeotestExpandMarker ctermfg=Grey guifg=#8094b4 
+   hi default NeotestAdapterName ctermfg=Red guifg=#F70067 
+   hi default NeotestWinSelect ctermfg=Cyan guifg=#00f1f5 gui=bold 
+   hi default NeotestMarked ctermfg=Brown guifg=#F79000 gui=bold 
+   hi default NeotestTarget ctermfg=Red guifg=#F70067 
+   hi default link NeotestUnknown Normal 
+ ]])
