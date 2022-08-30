@@ -17,9 +17,12 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <space>n <Plug>(coc-rename)
 
 " Easy most-recent-buffer switching
-nnoremap <silent> <space>b :Buffers<CR>
-nnoremap <silent> <space>f :Files<CR>
-nnoremap <silent> <space>s :Ag<CR>
+nnoremap <silent> <space>b :Telescope buffers<CR>
+nnoremap <silent> <space>f :Telescope find_files<CR>
+nnoremap <silent> <space>s :Telescope live_grep<CR>
+nnoremap <silent> <space>S :Telescope grep_string<CR>
+nnoremap <silent> <space>gb :Telescope git_branches<CR>
+nnoremap <silent> <space>gc :Telescope git_commits<CR>
 
 "#########################################
 
@@ -158,5 +161,15 @@ endif
 
 nnoremap <leader>/ :%s/
 
+"#########################################
+
+"############### Ranger #############
+tnoremap <silent> <space>rs <C-\><C-n>:RnvimrResize<CR>
+nnoremap <silent> <space>rr :RnvimrToggle<CR>
+tnoremap <silent> <space>rr <C-\><C-n>:RnvimrToggle<CR>
+
+"#########################################
+"
+"############### Telescope #############
 
 "#########################################

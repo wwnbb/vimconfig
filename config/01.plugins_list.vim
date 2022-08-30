@@ -34,6 +34,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-test/vim-test'
 
 Plug 'tpope/vim-fugitive'
+Plug 'kkoomen/vim-doge', { 'do': 'npm i --no-save && npm run build:binary:unix' }
+Plug 'kevinhwang91/rnvimr'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+Plug 'fannheyward/telescope-coc.nvim'
+
 call plug#end()
 
 lua require('dap-python').setup('/Users/admin/.pyenv/shims/python')
