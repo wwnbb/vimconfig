@@ -28,6 +28,10 @@
     "suggest.localityBonus": true,
     "signature.enable": true,
     //
+    
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportUnnecessaryTypeIgnoreComment": "none"
+    },
 
     "signature.target": "float",
     "coc.preferences.rootPatterns": [

@@ -16,13 +16,9 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <space>n <Plug>(coc-rename)
 
-" Easy most-recent-buffer switching
-nnoremap <silent> <space>b :Telescope buffers<CR>
-nnoremap <silent> <space>f :Telescope find_files<CR>
-nnoremap <silent> <space>s :Telescope live_grep<CR>
-nnoremap <silent> <space>S :Telescope grep_string<CR>
-nnoremap <silent> <space>gb :Telescope git_branches<CR>
-nnoremap <silent> <space>gc :Telescope git_commits<CR>
+"  better scrolling with c u / d
+nnoremap <c-d> 10<c-e>
+nnoremap <c-u> 10<c-y>
 
 "#########################################
 
@@ -95,6 +91,7 @@ nmap <silent> ]c :cp<cr>
 nmap <silent> ]l :ln<cr>
 nmap <silent> ]l :lp<cr>
 
+let g:doge_mapping = '<Leader>dg'
 
 " Code lens action
 nmap <leader>cl  <Plug>(coc-codelens-action)
@@ -125,6 +122,8 @@ nnoremap <silent><leader>tc :lua require("neotest").run.run({strategy="dap"})<CR
 nnoremap <silent><leader>tf :lua require("neotest").run.run(vim.fn.expand("%"))<CR>
 nnoremap <silent><leader>tw :lua require("neotest").run.run({suite=true})<CR>
 nnoremap <silent><leader>tm :lua require("neotest").summary.toggle()<CR>
+nnoremap <silent><leader>ta :lua require("neotest").run.attach()<CR>
+
 
 
  nnoremap <silent>[n <cmd>lua require("neotest").jump.prev({ status = "failed" })<CR>
@@ -172,4 +171,10 @@ tnoremap <silent> <space>rr <C-\><C-n>:RnvimrToggle<CR>
 "
 "############### Telescope #############
 
+nnoremap <silent> <space>b :Telescope buffers<CR>
+nnoremap <silent> <space>f :Telescope find_files<CR>
+nnoremap <silent> <space>s :Telescope live_grep<CR>
+nnoremap <silent> <space>S :Telescope grep_string<CR>
+nnoremap <silent> <space>gb :Telescope git_branches<CR>
+nnoremap <silent> <space>gc :Telescope git_commits<CR>
 "#########################################

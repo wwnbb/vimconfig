@@ -7,7 +7,9 @@ set clipboard^=unnamed,unnamedplus
 " highlights current line
 set cursorline
 " Keep your cursor centered vertically on the screen
-set scrolloff=15 
+set scrolloff=20 
+
+set pumheight=19
 
 " Tab = 4 spaces
 set tabstop=4
@@ -26,7 +28,7 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 " Sets relative line numbers in normal mode, absolute line numbers in insert
 " mode
 set number
-"set relativenumber
+set relativenumber
 
 " Set colors in terminal
 " Solarized, dark, with true color support
@@ -59,6 +61,8 @@ au BufNewFile,BufRead *.py setlocal expandtab tabstop=4 shiftwidth=4 softtabstop
 au BufNewFile,BufRead *.lua setlocal et ts=2 sw=2 sts=2
 
 
+
+" ###################### COLORS ########################
 hi default NeotestPassed ctermfg=Green guifg=#96F291 
 hi default NeotestFailed ctermfg=Red guifg=#F70067 
 hi default NeotestRunning ctermfg=Blue guifg=#014ad1
@@ -75,3 +79,7 @@ hi default NeotestWinSelect ctermfg=Cyan guifg=#00f1f5 gui=bold
 hi default NeotestMarked ctermfg=Brown guifg=#F79000 gui=bold 
 hi default NeotestTarget ctermfg=Red guifg=#F70067 
 hi default link NeotestUnknown Normal 
+
+" Coc autocomplete coloring
+hi CocMenuSel guibg=#E8DCB8
+hi CocSearch guifg=#B68C25 

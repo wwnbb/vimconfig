@@ -7,9 +7,9 @@ Plug 'isobit/vim-caddyfile'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'icymind/NeoSolarized'
-Plug 'Shougo/neoinclude.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+
 Plug 'terrortylor/nvim-comment'
 
 "Debugger
@@ -28,9 +28,6 @@ Plug 'nvim-neotest/neotest'
 Plug 'nvim-neotest/neotest-go'
 Plug 'nvim-neotest/neotest-python'
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
 Plug 'vim-test/vim-test'
 
 Plug 'tpope/vim-fugitive'
@@ -40,6 +37,10 @@ Plug 'kevinhwang91/rnvimr'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 Plug 'fannheyward/telescope-coc.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
+"Plugin collection
+Plug 'echasnovski/mini.nvim', {'branch': 'stable'}
 
 call plug#end()
 
