@@ -160,6 +160,8 @@ endif
 
 nnoremap <leader>/ :%s/
 
+nnoremap <space>t :terminal<CR>
+
 "#########################################
 
 "############### Ranger #############

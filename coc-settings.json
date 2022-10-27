@@ -33,6 +33,7 @@
         "reportUnnecessaryTypeIgnoreComment": "none"
     },
 
+    "python.analysis.typeCheckingMode": "off",
     "signature.target": "float",
     "coc.preferences.rootPatterns": [
         ".vim",

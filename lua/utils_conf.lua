@@ -2,6 +2,7 @@
 require('nvim_comment').setup()
 
 require('mini.surround').setup()
+require('mini.pairs').setup()
 
 require("telescope").setup({
   extensions = {
@@ -15,3 +16,4 @@ require('telescope').load_extension('coc')
 -- You dont need to set any of these options. These are the default ones. Only
 -- the loading is important
 require('telescope').load_extension('fzf')
+

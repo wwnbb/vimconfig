@@ -78,8 +78,6 @@ let g:airline_section_z = '%l:%c'
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 
-set foldminlines=5
-
 let g:doge_doc_standard_python = 'google'
 let g:doge_mapping = '<Leader>dc'
 
