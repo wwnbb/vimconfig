@@ -27,6 +27,8 @@ Plug 'nvim-neotest/neotest'
 
 Plug 'nvim-neotest/neotest-go'
 Plug 'nvim-neotest/neotest-python'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-neotest/neotest-plenary'
 
 Plug 'vim-test/vim-test'
 

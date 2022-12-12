@@ -1,40 +1,24 @@
 require("neotest").setup({
     adapters = {
-      require("neotest-python"),
+      require("neotest-plenary"),
+      require("neotest-python")({
+          -- Extra arguments for nvim-dap configuration
+          -- See https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for values
+          dap = { justMyCode = false },
+          -- Command line arguments for runner
+          -- Can also be a function to return dynamic values
+          args = {"--log-level", "INFO"},
+          -- Runner to use. Will use pytest if available by default.
+          -- Can be a function to return dynamic value.
+          runner = "pytest",
+          -- Custom python path for the runner.
+          -- Can be a string or a list of strings.
+          -- Can also be a function to return dynamic value.
+          -- If not provided, the path will be inferred by checking for 
+          -- virtual envs in the local directory and for Pipenev/Poetry configs
+          python = ".venv/bin/python"
+        }),
       require("neotest-go")
-    },
-    consumers = {},
-    diagnostic = {
-      enabled = true
-    },
-    discovery = {
-      enabled = true
-    },
-    floating = {
-      border = "rounded",
-      max_height = 0.7,
-      max_width = 0.7,
-      options = {
-        winblend = 5,
-        wrap = true
-      }
-    },
-    highlights = {
-      adapter_name = "NeotestAdapterName",
-      border = "NeotestBorder",
-      dir = "NeotestDir",
-      expand_marker = "NeotestExpandMarker",
-      failed = "NeotestFailed",
-      file = "NeotestFile",
-      focused = "NeotestFocused",
-      indent = "NeotestIndent",
-      marked = "NeotestMarked",
-      namespace = "NeotestNamespace",
-      passed = "NeotestPassed",
-      running = "NeotestRunning",
-      select_win = "NeotestWinSelect",
-      skipped = "NeotestSkipped",
-      test = "NeotestTest"
     },
     icons = {
       child_indent = "│",
@@ -47,46 +31,7 @@ require("neotest").setup({
       non_collapsible = "─",
       passed = "✔",
       running = "🗘",
-      skipped = "ﰸ",
+      skipped = "☇",
       unknown = "?"
     },
-    jump = {
-      enabled = true
-    },
-    output = {
-      enabled = true,
-      open_on_run = true
-    },
-    run = {
-      enabled = true
-    },
-    status = {
-      enabled = true,
-      signs = true,
-      virtual_text = true
-    },
-    strategies = {
-      integrated = {
-        height = 40,
-        width = 120
-      }
-    },
-    summary = {
-      enabled = true,
-      expand_errors = true,
-      follow = true,
-      mappings = {
-        attach = "a",
-        clear_marked = "M",
-        expand = { "<CR>", "<2-LeftMouse>" },
-        expand_all = "e",
-        jumpto = "i",
-        mark = "m",
-        output = "o",
-        run = "r",
-        run_marked = "R",
-        short = "O",
-        stop = "u"
-      }
-    }
   })
