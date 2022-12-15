@@ -9,12 +9,6 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <space>n <Plug>(coc-rename)
 
 "  better scrolling with c u / d
 nnoremap <c-d> 10<c-e>
@@ -24,66 +18,31 @@ nnoremap <c-u> 10<c-y>
 
 
 "############## COMPLETION ###############
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm()
-            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-inoremap <silent><expr> <TAB>
-            \ coc#pum#visible() ? coc#_select_confirm() :
-            \ coc#expandableOrJumpable() ?
-            \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
-
-function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+set signcolumn=yes
 
 let g:coc_snippet_next = '<tab>'
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
   else
-    execute '!' . &keywordprg . " " . expand('<cword>')
+    call feedkeys('K', 'in')
   endif
 endfunction
 
-" Use <C-l> for trigger snippet expand.
-imap <C-l> <Plug>(coc-snippets-expand)
 
 "#########################################
 
 
 "########## PLUGIN KEY-MAPPINGS. #########
-" keybindings for language client
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" Use <C-j> for select text for visual placeholder of snippet.
-vmap <C-j> <Plug>(coc-snippets-select)
-
-" Use <C-j> for jump to next placeholder, it's default of coc.nvim
-let g:coc_snippet_next = '<c-j>'
-
-" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
-
-" Use <C-j> for both expand and jump (make expand higher priority.)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-" Use <leader>x for convert visual selected code to snippet
-xmap <leader>x  <Plug>(coc-convert-snippet)
 
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
 autocmd FileType go nmap <leader>tj :CocCommand go.tags.add json<cr>
 autocmd FileType go nmap <leader>ty :CocCommand go.tags.add yaml<cr>
 autocmd FileType go nmap <leader>tx :CocCommand go.tags.clear<cr>
-
-nmap <silent> [e <Plug>(coc-diagnostic-prev)
-nmap <silent> ]e <Plug>(coc-diagnostic-next)
 
 nmap <silent> [c :cn<cr>
 nmap <silent> ]c :cp<cr>
@@ -93,8 +52,6 @@ nmap <silent> ]l :lp<cr>
 
 let g:doge_mapping = '<Leader>dg'
 
-" Code lens action
-nmap <leader>cl  <Plug>(coc-codelens-action)
 
 " DAP
 nnoremap <silent><leader>b :lua require'dap'.toggle_breakpoint()<CR>

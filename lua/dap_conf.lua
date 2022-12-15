@@ -56,7 +56,23 @@ require("dapui").setup({
     windows = { indent = 1 },
     render = { 
       max_type_length = nil, -- Can be integer or nil.
-    }
+    },
+    controls = {
+      -- Requires Neovim nightly (or 0.8 when released)
+      enabled = true,
+      -- Display controls in this element
+      element = "repl",
+      icons = {
+        pause = "",
+        play = "",
+        step_into = "",
+        step_over = "",
+        step_out = "",
+        step_back = "",
+        run_last = "",
+        terminate = "ﭦ",
+      },
+    },
   })
 
 local dap, dapui = require("dap"), require("dapui")
@@ -69,3 +85,13 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
+
+vim.api.nvim_set_hl(0, 'DapBreakpoint', {fg='#993939', bg='#31353f' })
+vim.api.nvim_set_hl(0, 'DapLogPoint', {fg='#61afef', bg='#31353f' })
+vim.api.nvim_set_hl(0, 'DapStopped', {fg='#98c379', bg='#31353f' })
+
+vim.fn.sign_define('DapBreakpoint', {text="🔴", texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapBreakpointCondition', { text='ﳁ', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl='DapBreakpoint' })
+vim.fn.sign_define('DapBreakpointRejected', { text='', texthl='DapBreakpoint', linehl='DapBreakpoint', numhl= 'DapBreakpoint' })
+vim.fn.sign_define('DapLogPoint', { text='', texthl='DapLogPoint', linehl='DapLogPoint', numhl= 'DapLogPoint' })
+vim.fn.sign_define('DapStopped', { text='', texthl='DapStopped', linehl='DapStopped', numhl= 'DapStopped' })

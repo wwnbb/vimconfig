@@ -21,14 +21,20 @@ let g:airline#extensions#tabline#show_splits = 0
 let g:airline#extensions#tabline#show_tabs = 1
 let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#close_symbol = '×'
+let g:airline#extensions#tabline#close_symbol = ' '
 let g:airline#extensions#tabline#show_close_button = 0
 
+" '' '' '' '' '' '' '' '' '' '' '' '' '' ''
+" '' '' '' '' '' '' '' '' '' '' '' '' '' ''
+" '' '' '' '' '' '' '' '' '' ''
+
+let g:airline#extensions#whitespace#mixed_indent_algo = 1
+let g:airline_symbols.space = "\ua0\ua0"
 " unicode symbols
 let g:airline_left_sep = '»'
-let g:airline_left_sep = ''
+let g:airline_left_sep = ''
 let g:airline_right_sep = '«'
-let g:airline_right_sep = ''
+let g:airline_right_sep = ''
 let g:airline_symbols.crypt = '🔒'
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.linenr = '␊'
@@ -36,7 +42,7 @@ let g:airline_symbols.linenr = '␤'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.maxlinenr = '㏑'
-let g:airline_symbols.branch = ''
+let g:airline_symbols.branch = ' '
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'

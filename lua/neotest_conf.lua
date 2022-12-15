@@ -1,24 +1,26 @@
+local Path = require("plenary.path")
+
 require("neotest").setup({
     adapters = {
-      require("neotest-plenary"),
+      require("neotest-go"),
       require("neotest-python")({
-          -- Extra arguments for nvim-dap configuration
-          -- See https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for values
-          dap = { justMyCode = false },
-          -- Command line arguments for runner
-          -- Can also be a function to return dynamic values
-          args = {"--log-level", "INFO"},
-          -- Runner to use. Will use pytest if available by default.
-          -- Can be a function to return dynamic value.
           runner = "pytest",
-          -- Custom python path for the runner.
-          -- Can be a string or a list of strings.
-          -- Can also be a function to return dynamic value.
-          -- If not provided, the path will be inferred by checking for 
-          -- virtual envs in the local directory and for Pipenev/Poetry configs
-          python = ".venv/bin/python"
+
+          python = ".venv/bin/python",
+
+          dap = { justMyCode = false },
+
+          is_test_file = function(file_path)
+            if not vim.endswith(file_path, ".py") then
+              return false
+            end
+            local elems = vim.split(file_path, Path.path.sep)
+            local file_name = elems[#elems]
+            return vim.startswith(file_name, "test_")
+            or vim.endswith(file_name, "_test.py")
+            or vim.endswith(file_name, "Test.py")
+          end
         }),
-      require("neotest-go")
     },
     icons = {
       child_indent = "│",
