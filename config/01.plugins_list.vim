@@ -25,12 +25,9 @@ Plug 'rcarriga/nvim-dap-ui'
 Plug 'theHamsta/nvim-dap-virtual-text'
 
 Plug 'nvim-lua/plenary.nvim', {'tag': '*'}
-Plug 'antoinemadec/FixCursorHold.nvim'
-Plug 'nvim-neotest/neotest', {'tag': 'v2.1.0'}
-
+Plug 'nvim-neotest/neotest', {'tag': 'v2.5.0'}
 Plug 'nvim-neotest/neotest-go'
 Plug 'nvim-neotest/neotest-python'
-Plug 'nvim-neotest/neotest-plenary'
 
 Plug 'vim-test/vim-test'
 
@@ -44,6 +41,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 Plug 'fannheyward/telescope-coc.nvim'
 Plug 'tom-anders/telescope-vim-bookmarks.nvim'
+Plug 'nvim-telescope/telescope-dap.nvim'
+Plug 'nvim-telescope/telescope-github.nvim'
 
 "Plugin collection
 Plug 'echasnovski/mini.nvim', {'branch': 'stable'}

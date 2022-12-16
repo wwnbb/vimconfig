@@ -36,10 +36,6 @@ endfunction
 "#########################################
 
 
-"########## PLUGIN KEY-MAPPINGS. #########
-
-autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
-
 autocmd FileType go nmap <leader>tj :CocCommand go.tags.add json<cr>
 autocmd FileType go nmap <leader>ty :CocCommand go.tags.add yaml<cr>
 autocmd FileType go nmap <leader>tx :CocCommand go.tags.clear<cr>
@@ -51,7 +47,6 @@ nmap <silent> ]l :ln<cr>
 nmap <silent> ]l :lp<cr>
 
 let g:doge_mapping = '<Leader>dg'
-
 
 " DAP
 nnoremap <silent><leader>b :lua require'dap'.toggle_breakpoint()<CR>
@@ -95,10 +90,12 @@ nnoremap <silent><leader>ta :lua require("neotest").run.attach()<CR>
 " Use ; for commands
 nnoremap ; :
 
-" Delete trailing whitespace with F5
-:nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+augroup prewrites
+   autocmd!
+    autocmd BufWritePre,FileWritePre * :%s/\s\+$//e | %s/\r$//e
+augroup END
 
-nnoremap <leader>l :redir @+<CR>:echom join([expand('%'),  line(".")], ':')<CR>:redir END<CR>
+nnoremap <silent> <leader>l :redir @+<CR>:echom join([expand('%'),  line(".")], ':')<CR>:redir END<CR>
 
 "#########################################
 
@@ -116,24 +113,4 @@ if has("nvim")
 endif
 
 nnoremap <leader>/ :%s/
-
 nnoremap <space>t :terminal<CR>
-
-"#########################################
-
-"############### Ranger #############
-tnoremap <silent> <space>rs <C-\><C-n>:RnvimrResize<CR>
-nnoremap <silent> <space>rr :RnvimrToggle<CR>
-tnoremap <silent> <space>rr <C-\><C-n>:RnvimrToggle<CR>
-
-"#########################################
-"
-"############### Telescope #############
-
-nnoremap <silent> <space>b :Telescope buffers<CR>
-nnoremap <silent> <space>f :Telescope find_files<CR>
-nnoremap <silent> <space>s :Telescope live_grep<CR>
-nnoremap <silent> <space>S :Telescope grep_string<CR>
-nnoremap <silent> <space>gb :Telescope git_branches<CR>
-nnoremap <silent> <space>gc :Telescope git_commits<CR>
-"#########################################
