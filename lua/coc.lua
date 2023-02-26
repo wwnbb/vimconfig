@@ -148,6 +148,7 @@ keyset("v", "<C-b>", 'coc#float#has_scroll() ? coc#float#scroll(0) : "<C-b>"', o
 -- Requires 'textDocument/selectionRange' support of language server
 keyset("n", "<C-s>", "<Plug>(coc-range-select)", {silent = true})
 keyset("x", "<C-s>", "<Plug>(coc-range-select)", {silent = true})
+keyset("v", "<leader>x", "<Plug>(coc-convert-snippet)", {silent = true})
 
 
 -- Add `:Format` command to format current buffer

@@ -8,7 +8,16 @@ dap.adapters.go = {
 
 require('dap.ext.vscode').load_launchjs('~/.config/nvim/config/launch.json', nil)
 
-require('dap-go').setup()
+require('dap-go').setup{
+  dap_configurations = {
+    {
+      type = "go",
+      name = "Attach remote",
+      mode = "remote",
+      request = "attach",
+    },
+  },
+}
 
 require("nvim-dap-virtual-text").setup()
 
@@ -54,7 +63,7 @@ require("dapui").setup({
       },
     },
     windows = { indent = 1 },
-    render = { 
+    render = {
       max_type_length = nil, -- Can be integer or nil.
     },
     controls = {

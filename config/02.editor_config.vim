@@ -40,6 +40,9 @@ colorscheme NeoSolarized
 " so this workaround allows for editing
 au FileType crontab setlocal bkc=yes
 
+" fix jump
+nnoremap <silent> * :let @/= '\<' . expand('<cword>') . '\>' <bar> set hls <cr>
+
 set hidden
 
 " terminal settings
