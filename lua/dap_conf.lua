@@ -20,6 +20,7 @@ require('dap-go').setup{
 }
 
 require("nvim-dap-virtual-text").setup()
+require('dap-python').setup("~/.pyenv/shims/python")
 
 require("dapui").setup({
     icons = { expanded = "▾", collapsed = "▸" },

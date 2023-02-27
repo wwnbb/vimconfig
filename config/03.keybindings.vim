@@ -20,25 +20,7 @@ nnoremap <c-u> 10<c-y>
 "############## COMPLETION ###############
 set signcolumn=yes
 
-let g:coc_snippet_next = '<tab>'
-
-nnoremap <silent> K :call ShowDocumentation()<CR>
-
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
-
-
 "#########################################
-
-
-autocmd FileType go nmap <leader>tj :CocCommand go.tags.add json<cr>
-autocmd FileType go nmap <leader>ty :CocCommand go.tags.add yaml<cr>
-autocmd FileType go nmap <leader>tx :CocCommand go.tags.clear<cr>
 
 nmap <silent> [c :cn<cr>
 nmap <silent> ]c :cp<cr>

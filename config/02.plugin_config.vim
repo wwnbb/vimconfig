@@ -54,8 +54,6 @@ let g:airline#extensions#tabline#formatter = 'default'
 
 let g:airline_skip_empty_sections = 1
 
-let g:airline#extensions#coc#show_coc_status = 0
-
 
 " Simple mode names
 let g:airline_mode_map = {
