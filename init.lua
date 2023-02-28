@@ -26,3 +26,7 @@ load_lua_files()
 for _, f in ipairs(vim.fn.globpath('~/.config/nvim/config/', '*', false, true)) do
   vim.cmd('source ' .. f)
 end
+
+
+vim.cmd('hi default NeotestFile ctermfg=6 guifg=#2aa198')
+vim.cmd('hi default NeotestDir ctermfg=6 guifg=#2aa198')

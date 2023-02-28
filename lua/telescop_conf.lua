@@ -19,6 +19,9 @@ telescope.setup{
         -- e.g. git_{create, delete, ...}_branch for the git_branches picker
         ["<C-h>"] = "which_key"
       }
+    },
+    git_branches = {
+      git_command = "git branch --no-merged",
     }
   },
   pickers = {

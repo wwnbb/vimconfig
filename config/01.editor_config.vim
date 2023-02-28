@@ -62,23 +62,19 @@ au BufNewFile,BufRead *.lua setlocal et ts=2 sw=2 sts=2
 
 
 " ###################### COLORS ########################
-hi default NeotestPassed ctermfg=Green guifg=#96F291
-hi default NeotestFailed ctermfg=Red guifg=#F70067
-hi default NeotestRunning ctermfg=Blue guifg=#014ad1
-hi default NeotestSkipped ctermfg=Cyan guifg=#00f1f5
-hi default link NeotestTest Normal
-hi default NeotestNamespace ctermfg=Magenta guifg=#D484FF
-hi default NeotestFocused gui=bold,underline cterm=bold,underline
-hi default NeotestFile ctermfg=Cyan guifg=#607060
-hi default NeotestDir ctermfg=Cyan guifg=#0081d1
-hi default NeotestIndent ctermfg=Grey guifg=#8B8B8B
-hi default NeotestExpandMarker ctermfg=Grey guifg=#8094b4
-hi default NeotestAdapterName ctermfg=Red guifg=#F70067
-hi default NeotestWinSelect ctermfg=Cyan guifg=#00f1f5 gui=bold
-hi default NeotestMarked ctermfg=Brown guifg=#F79000 gui=bold
-hi default NeotestTarget ctermfg=Red guifg=#F70067
-hi default link NeotestUnknown Normal
+hi NeotestPassed guifg=#859900
+hi NeotestFailed guifg=#F70067
+hi NeotestRunning guifg=#268bd2
+hi NeotestSkipped guifg=#2aa198
+hi NeotestFile guifg=#859900
+hi NeotestDir guifg=#268bd2
+hi NeotestNamespace guifg=#d33682
+hi NeotestFocused gui=bold,underline cterm=bold,underline
+hi NeotestIndent guifg=#8B8B8B
+hi NeotestExpandMarker guifg=#8094b4
+hi NeotestAdapterName guifg=#F70067
+hi NeotestWinSelect guifg=#00f1f5 gui=bold
+hi NeotestMarked guifg=#F79000 gui=bold
+hi NeotestTarget guifg=#F70067
+hi NeotestTest guifg=#657b83
 
-" Coc autocomplete coloring
-hi CocMenuSel guibg=#E8DCB8
-hi CocSearch guifg=#B68C25
