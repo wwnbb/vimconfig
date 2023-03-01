@@ -78,3 +78,8 @@ hi NeotestMarked guifg=#F79000 gui=bold
 hi NeotestTarget guifg=#F70067
 hi NeotestTest guifg=#657b83
 
+let g:loaded_perl_provider = 0
+let g:loaded_ruby_provider = 0
+let g:loaded_node_provider = 0
+
+let g:python3_host_prog="/Users/admin/.config/nvim/.venv/bin/python"

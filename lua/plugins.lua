@@ -44,6 +44,7 @@ return require('packer').startup(function(use)
 
   use 'vim-test/vim-test'
 
+  use 'jose-elias-alvarez/null-ls.nvim'
   use 'tpope/vim-fugitive'
   use 'rbong/vim-flog'
   use { 'kkoomen/vim-doge', run = 'npm i --no-save && npm run build:binary:unix' }
