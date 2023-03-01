@@ -19,6 +19,9 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'SirVer/ultisnips'
   use 'quangnguyen30192/cmp-nvim-ultisnips'
+  use { 'L3MON4D3/LuaSnip', run = 'make install_jsregexp' }
+  use { 'saadparwaiz1/cmp_luasnip' }
+  use { 'rafamadriz/friendly-snippets' }
 
   use 'terrortylor/nvim-comment'
 
@@ -65,9 +68,9 @@ return require('packer').startup(function(use)
   use 'echasnovski/mini.nvim'
   use { 'edkolev/tmuxline.vim', tag = '*' }
   use {
-    "smjonas/inc-rename.nvim",
+    'smjonas/inc-rename.nvim',
     config = function()
-      require("inc_rename").setup{input_buffer_type = "dressing",}
+      require('inc_rename').setup{input_buffer_type = 'dressing',}
     end,
   }
   use {'stevearc/dressing.nvim'}
