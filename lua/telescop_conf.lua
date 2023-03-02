@@ -49,13 +49,19 @@ keyset('n', '<space>gb', tele.git_branches, {})
 keyset('n', '<space>gc', tele.git_commits, {})
 keyset('n', '<space>h', tele.help_tags, {})
 
+keyset('n', '<space>m', ':Telescope make<CR>', {})
 
+local make = telescope.extensions.make
 local cursor_theme = require('telescope.themes').get_cursor({})
 local ivy_theme = require('telescope.themes').get_ivy({})
 local github = telescope.extensions.gh
 
 local function dap_conf()
   require('telescope').extensions.dap.configurations(cursor_theme)
+end
+
+local function dap_conf()
+  make.configurations(cursor_theme)
 end
 
 -- Выбираем первое совпадение в списке

@@ -60,6 +60,12 @@ au BufNewFile,BufRead *.py setlocal expandtab tabstop=4 shiftwidth=4 softtabstop
 au BufNewFile,BufRead *.lua setlocal et ts=2 sw=2 sts=2
 
 
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+
+autocmd BufReadPost,FileReadPost * normal zR
+
+
 
 " ###################### COLORS ########################
 hi NeotestPassed guifg=#859900
