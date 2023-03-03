@@ -71,17 +71,22 @@ local function github_menu()
   github.run({})
 end
 
-local function lsp_definitions()
-  require('telescope.builtin').lsp_definitions(ivy_theme)
-end
+-- local function lsp_definitions()
+--   require('telescope.builtin').lsp_definitions(ivy_theme)
+-- end
 
 
 local function lsp_references()
   require("telescope.builtin").lsp_references(ivy_theme)
 end
 
+local function go_to_mark()
+  telescope.extensions.vim_bookmarks.all()
+end
+
 keyset('n', '<space>td', dap_conf, {})
 keyset('n', '<space>tg', github_menu, {})
 
-keyset('n', 'gd', lsp_definitions, { noremap = true, silent = true })
+-- keyset('n', 'gd', lsp_definitions, { noremap = true, silent = true })
 keyset('n', 'gr', lsp_references, { noremap = true, silent = true })
+keyset('n', 'gm', go_to_mark, {})
