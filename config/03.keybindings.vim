@@ -89,10 +89,5 @@ nnoremap <space>d :cd %:p:h<CR>:pwd<CR>
 
 nnoremap <silent> <space>c :e $NVIM_CONFIG<CR>
 
-if has("nvim")
-  au! TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
-  au! FileType fzf tunmap <buffer> <Esc>
-endif
-
 nnoremap <leader>/ :%s/
 nnoremap <space>t :terminal<CR>
