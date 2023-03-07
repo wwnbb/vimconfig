@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
   use { 'kkoomen/vim-doge', run = 'npm i --no-save && npm run build:binary:unix' }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'nvim-telescope/telescope-github.nvim'
+  use { 'williamboman/mason.nvim' }
 
 
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x',
