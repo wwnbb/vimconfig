@@ -25,6 +25,12 @@ telescope.setup{
     }
   },
   pickers = {
+    lsp_references = {
+      theme = "ivy",
+    },
+    lsp_definitions = {
+      theme = "ivy",
+    }
     -- Default configuration for builtin pickers goes here:
     -- picker_name = {
     --   picker_config_key = value,
@@ -35,9 +41,6 @@ telescope.setup{
   },
   extensions = {}
 }
-telescope.load_extension('make')
-telescope.load_extension('dap')
-telescope.load_extension('gh')
 
 local tele = require('telescope.builtin')
 keyset('n', '<space>f', tele.find_files, {})
@@ -48,6 +51,8 @@ keyset('n', '<space>b', tele.buffers, {})
 keyset('n', '<space>gb', tele.git_branches, {})
 keyset('n', '<space>gc', tele.git_commits, {})
 keyset('n', '<space>h', tele.help_tags, {})
+keyset('n', 'gd', tele.lsp_definitions, { noremap = true, silent = true })
+keyset('n', 'gr', tele.lsp_references, { noremap = true, silent = true })
 
 keyset('n', '<space>m', ':Telescope make<CR>', {})
 
@@ -56,37 +61,8 @@ local cursor_theme = require('telescope.themes').get_cursor({})
 local ivy_theme = require('telescope.themes').get_ivy({})
 local github = telescope.extensions.gh
 
-local function dap_conf()
-  require('telescope').extensions.dap.configurations(cursor_theme)
-end
-
-local function dap_conf()
-  make.configurations(cursor_theme)
-end
-
--- Выбираем первое совпадение в списке
-
-
 local function github_menu()
   github.run({})
 end
 
--- local function lsp_definitions()
---   require('telescope.builtin').lsp_definitions(ivy_theme)
--- end
-
-
-local function lsp_references()
-  require("telescope.builtin").lsp_references(ivy_theme)
-end
-
-local function go_to_mark()
-  telescope.extensions.vim_bookmarks.all()
-end
-
-keyset('n', '<space>td', dap_conf, {})
 keyset('n', '<space>tg', github_menu, {})
-
--- keyset('n', 'gd', lsp_definitions, { noremap = true, silent = true })
-keyset('n', 'gr', lsp_references, { noremap = true, silent = true })
-keyset('n', 'gm', go_to_mark, {})

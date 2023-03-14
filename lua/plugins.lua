@@ -52,20 +52,21 @@ return require('packer').startup(function(use)
   use 'rbong/vim-flog'
   use { 'kkoomen/vim-doge', run = 'npm i --no-save && npm run build:binary:unix' }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'nvim-telescope/telescope-github.nvim'
   use { 'williamboman/mason.nvim' }
 
 
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x',
     requires = {
-      'tom-anders/telescope-vim-bookmarks.nvim',
       'nvim-telescope/telescope-dap.nvim',
       'nvim-telescope/telescope-github.nvim',
       'sopa0/telescope-makefile',
     },
     config = function()
-      require('telescope').load_extension('fzf')
-      require('telescope').load_extension('vim_bookmarks')
+      local tele = require('telescope')
+      tele.load_extension('fzf')
+      tele.load_extension('make')
+      tele.load_extension('dap')
+      tele.load_extension('gh')
     end
   }
 
@@ -78,4 +79,14 @@ return require('packer').startup(function(use)
     end,
   }
   use {'stevearc/dressing.nvim'}
+
+  use {
+    "danymat/neogen",
+    config = function()
+      require('neogen').setup {}
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
+  }
+  use {"github/copilot.vim"}
+  use {'akinsho/git-conflict.nvim', tag = "*"}
 end)
