@@ -93,5 +93,3 @@ nnoremap <leader>/ :%s/
 nnoremap <space>t :terminal<CR>
 
 imap <silent><script><expr> <C-z> copilot#Accept("\<CR>")
-let g:copilot_no_tab_map = v:true
-
