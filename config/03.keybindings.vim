@@ -90,6 +90,5 @@ nnoremap <space>d :cd %:p:h<CR>:pwd<CR>
 nnoremap <silent> <space>c :e $NVIM_CONFIG<CR>
 
 nnoremap <leader>/ :%s/
-nnoremap <space>t :terminal<CR>
 
 imap <silent><script><expr> <C-z> copilot#Accept("\<CR>")
