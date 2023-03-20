@@ -1,16 +1,16 @@
 local api = vim.api
 
-
 api.nvim_create_autocmd("FileType",
-  { pattern = { "help", "startuptime", "lspinfo", "neotest-output"}, command = [[nnoremap <buffer><silent> q :close<CR>]] }
-  )
+  { pattern = { "help", "startuptime", "lspinfo", "neotest-output", "toggleterm" },
+    command = [[nnoremap <buffer><silent> q :close<CR>]] }
+)
 
 api.nvim_create_autocmd("BufWritePre", {
-    buffer = buffer,
-    callback = function()
-      vim.lsp.buf.format { async = false }
-    end
-  })
+  buffer = buffer,
+  callback = function()
+    vim.lsp.buf.format { async = false }
+  end
+})
 
 
 vim.g.copilot_filetypes = {
@@ -66,9 +66,6 @@ vim.cmd("colorscheme NeoSolarized")
 -- crontab filetype tweak
 vim.cmd([[au FileType crontab setlocal bkc=yes]])
 
--- fix jump
-vim.api.nvim_set_keymap('n', '*', ':let @/= \'<\' . expand(\'<cword>\') . \'>\' <bar> set hls <cr>', {noremap = true, silent = true})
-
 vim.opt.hidden = true
 
 -- terminal settings
@@ -113,4 +110,3 @@ vim.g.loaded_node_provider = 0
 
 -- Set Python 3 host program
 vim.g.python3_host_prog = "/Users/admin/.config/nvim/.venv/bin/python"
-

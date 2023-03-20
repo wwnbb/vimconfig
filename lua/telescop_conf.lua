@@ -21,7 +21,7 @@ telescope.setup{
       }
     },
     git_branches = {
-      git_command = "git branch --no-merged",
+      git_command = "git branch",
     }
   },
   pickers = {
@@ -30,6 +30,9 @@ telescope.setup{
     },
     lsp_definitions = {
       theme = "ivy",
+    },
+    git_branches = {
+      cmd = {"git", "branch", "--format", "%(refname:lstrip=2)"},
     }
     -- Default configuration for builtin pickers goes here:
     -- picker_name = {
@@ -44,7 +47,6 @@ telescope.setup{
 
 local tele = require('telescope.builtin')
 keyset('n', '<space>f', tele.find_files, {})
-keyset('n', '<space>S', tele.grep_string, {})
 keyset('v', '<space>S', tele.grep_string, {})
 keyset('n', '<space>s', tele.live_grep, {})
 keyset('n', '<space>b', tele.buffers, {})

@@ -24,6 +24,7 @@ return require('packer').startup(function(use)
   use { 'rafamadriz/friendly-snippets' }
 
   use 'terrortylor/nvim-comment'
+  use { 'nvim-tree/nvim-tree.lua' }
 
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -50,7 +51,7 @@ return require('packer').startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'tpope/vim-fugitive'
   use 'rbong/vim-flog'
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'williamboman/mason.nvim' }
 
 
@@ -74,10 +75,10 @@ return require('packer').startup(function(use)
   use {
     'smjonas/inc-rename.nvim',
     config = function()
-      require('inc_rename').setup{input_buffer_type = 'dressing',}
+      require('inc_rename').setup { input_buffer_type = 'dressing', }
     end,
   }
-  use {'stevearc/dressing.nvim'}
+  use { 'stevearc/dressing.nvim' }
 
   use {
     "danymat/neogen",
@@ -86,6 +87,6 @@ return require('packer').startup(function(use)
     end,
     requires = "nvim-treesitter/nvim-treesitter",
   }
-  use {"github/copilot.vim"}
-  use {'akinsho/git-conflict.nvim', tag = "*"}
+  use { "github/copilot.vim" }
+  use { 'akinsho/git-conflict.nvim', tag = "*" }
 end)

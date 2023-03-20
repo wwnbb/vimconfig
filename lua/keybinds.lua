@@ -14,5 +14,10 @@ keyset("n", "<Space>n", function()
   return ":IncRename " .. vim.fn.expand("<cword>")
 end, { expr = true })
 
-local bufopts = { noremap=true, silent=true}
+local bufopts = { noremap = true, silent = true }
 keyset('n', '=f', function() vim.lsp.buf.format { async = true } end, bufopts)
+
+keyset('n', '*', ":let @/= \'<\' . expand(\'<cword>\') . \'>\' <bar> set hls <cr>", { noremap = true })
+
+vim.cmd('nnoremap <silent> * :keepjumps normal! mi*`i<CR>')
+vim.cmd('nnoremap <silent> # :nohl<CR>')

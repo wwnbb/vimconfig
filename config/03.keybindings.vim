@@ -28,8 +28,6 @@ nmap <silent> ]c :cp<cr>
 nmap <silent> ]l :ln<cr>
 nmap <silent> ]l :lp<cr>
 
-let g:doge_mapping = '<Leader>dg'
-
 " DAP
 nnoremap <silent><leader>b :lua require'dap'.toggle_breakpoint()<CR>
 nnoremap <silent><space>k :lua require'dap'.step_out()<CR>
