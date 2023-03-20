@@ -21,3 +21,7 @@ keyset('n', '*', ":let @/= \'<\' . expand(\'<cword>\') . \'>\' <bar> set hls <cr
 
 vim.cmd('nnoremap <silent> * :keepjumps normal! mi*`i<CR>')
 vim.cmd('nnoremap <silent> # :nohl<CR>')
+
+local api = require("nvim-tree.api")
+
+keyset('n', '<space>t', api.tree.open, { noremap = true, silent = true })
