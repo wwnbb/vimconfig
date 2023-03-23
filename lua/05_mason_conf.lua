@@ -6,7 +6,6 @@ require("mason-lspconfig").setup_handlers {
   -- and will be called for each installed server that doesn't have
   -- a dedicated handler.
   function(server_name) -- default handler (optional)
-    print(server_name)
     require("lspconfig")[server_name].setup {}
   end
 }
