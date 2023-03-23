@@ -17,6 +17,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp-signature-help'
   use 'SirVer/ultisnips'
   use 'quangnguyen30192/cmp-nvim-ultisnips'
   use { 'L3MON4D3/LuaSnip', run = 'make install_jsregexp' }
@@ -48,11 +49,11 @@ return require('packer').startup(function(use)
 
   use 'vim-test/vim-test'
 
-  use 'jose-elias-alvarez/null-ls.nvim'
   use 'tpope/vim-fugitive'
   use 'rbong/vim-flog'
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'williamboman/mason.nvim' }
+  use { 'williamboman/mason-lspconfig.nvim' }
 
 
   use { 'nvim-telescope/telescope.nvim', branch = '0.1.x',
@@ -89,4 +90,5 @@ return require('packer').startup(function(use)
   }
   use { "github/copilot.vim" }
   use { 'akinsho/git-conflict.nvim', tag = "*" }
+  use { 'ray-x/navigator.lua', requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' } }
 end)

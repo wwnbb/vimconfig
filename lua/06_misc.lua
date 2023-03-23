@@ -1,17 +1,14 @@
+local vim = vim
 local api = vim.api
+local opt = vim.opt
+
 
 api.nvim_create_autocmd("FileType",
-  { pattern = { "help", "startuptime", "lspinfo", "neotest-output", "toggleterm" },
-    command = [[nnoremap <buffer><silent> q :close<CR>]] }
+  {
+    pattern = { "help", "startuptime", "lspinfo", "neotest-output", "toggleterm", "fugitive" },
+    command = [[nnoremap <buffer><silent> q :close<CR>]]
+  }
 )
-
-api.nvim_create_autocmd("BufWritePre", {
-  buffer = buffer,
-  callback = function()
-    vim.lsp.buf.format { async = false }
-  end
-})
-
 
 vim.g.copilot_filetypes = {
   ['*'] = false,
@@ -76,32 +73,9 @@ vim.cmd([[autocmd BufLeave term://* stopinsert]])
 vim.cmd([[au BufNewFile,BufRead *.py setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4]])
 vim.cmd([[au BufNewFile,BufRead *.lua setlocal et ts=2 sw=2 sts=2]])
 
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 vim.cmd([[autocmd BufReadPost,FileReadPost * normal zR]])
 
--- ###################### COLORS ########################
-vim.cmd([[hi NeotestPassed guifg=#859900]])
-vim.cmd([[hi NeotestFailed guifg=#F70067]])
-vim.cmd([[hi NeotestRunning guifg=#268bd2]])
-vim.cmd([[hi NeotestSkipped guifg=#2aa198]])
-vim.cmd([[hi NeotestFile guifg=#859900]])
-vim.cmd([[hi NeotestDir guifg=#268bd2]])
-vim.cmd([[hi NeotestNamespace guifg=#d33682]])
-vim.cmd([[hi NeotestFocused gui=bold,underline cterm=bold,underline]])
-vim.cmd([[hi NeotestIndent guifg=#8B8B8B]])
-vim.cmd([[hi NeotestExpandMarker guifg=#8094b4]])
-vim.cmd([[hi NeotestAdapterName guifg=#F70067]])
-vim.cmd([[hi NeotestWinSelect guifg=#00f1f5 gui=bold]])
-vim.cmd([[hi NeotestMarked guifg=#F79000 gui=bold]])
-vim.cmd([[hi NeotestTarget guifg=#F70067]])
-vim.cmd([[hi NeotestTest guifg=#657b83]])
-
-vim.cmd([[hi CmpItemKind guifg=#839496 guibg=#fdf6e3]])
-
-vim.cmd([[hi CmpItemAbbrMatch guifg=#b58900 guibg=#fdf6e3]])
-vim.cmd([[hi CmpItemAbbrMatchFuzzy guifg=#b58900 guibg=#fdf6e3]])
 
 -- Disable built-in providers
 vim.g.loaded_perl_provider = 0
@@ -110,3 +84,8 @@ vim.g.loaded_node_provider = 0
 
 -- Set Python 3 host program
 vim.g.python3_host_prog = "/Users/admin/.config/nvim/.venv/bin/python"
+
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+vim.cmd([[set nofoldenable]])
