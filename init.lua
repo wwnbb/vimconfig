@@ -1,11 +1,14 @@
 -- Install Packer if it's not already installed
+local vim = vim
 local execute = vim.api.nvim_command
-local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
+  execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 
 vim.cmd [[packadd packer.nvim]]
+vim.cmd [[packadd guihua.lua]]
 
 -- Get the directory containing the init.lua file
 local config_dir = vim.fn.expand("~/.config/nvim")
@@ -26,7 +29,3 @@ load_lua_files()
 for _, f in ipairs(vim.fn.globpath('~/.config/nvim/config/', '*', false, true)) do
   vim.cmd('source ' .. f)
 end
-
-
-vim.cmd('hi default NeotestFile ctermfg=6 guifg=#2aa198')
-vim.cmd('hi default NeotestDir ctermfg=6 guifg=#2aa198')
