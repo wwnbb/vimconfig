@@ -10,7 +10,7 @@ local api = require("nvim-tree.api")
 
 local function explore()
   -- path = vim.fn.expand("%")
-  api.tree.toggle({})
+  api.tree.toggle({ find_file = true, focus = true, path = "<arg>" })
 end
 
 local function show_lsp_documentation()
