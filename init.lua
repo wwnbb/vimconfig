@@ -29,3 +29,4 @@ load_lua_files()
 for _, f in ipairs(vim.fn.globpath('~/.config/nvim/config/', '*', false, true)) do
   vim.cmd('source ' .. f)
 end
+

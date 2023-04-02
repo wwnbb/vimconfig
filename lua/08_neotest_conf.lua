@@ -40,7 +40,7 @@ require("neotest").setup({
       final_child_prefix = "╰",
       non_collapsible = "─",
       passed = "✔",
-      running = "🗘",
+      running = "",
       skipped = "☇",
       unknown = "?"
     },

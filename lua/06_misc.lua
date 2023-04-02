@@ -88,4 +88,8 @@ vim.g.python3_host_prog = "/Users/admin/.config/nvim/.venv/bin/python"
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 
+
 vim.cmd([[set nofoldenable]])
+
+-- clean up search highlighting
+vim.fn.setreg('/', '')

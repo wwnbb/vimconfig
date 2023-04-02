@@ -35,6 +35,7 @@ return require('packer').startup(function(use)
     end,
   }
 
+  use 'jose-elias-alvarez/null-ls.nvim'
   use 'mfussenegger/nvim-dap'
   use 'leoluz/nvim-dap-go'
   use 'rcarriga/nvim-dap-ui'

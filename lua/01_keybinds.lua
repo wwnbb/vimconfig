@@ -1,8 +1,17 @@
 local keyset = vim.keymap.set
 
--- keyset('n', '*', ":let @/= \'<\' . expand(\'<cword>\') . \'>\' <bar> set hls <cr>", { noremap = true })
 
-vim.cmd('nnoremap <silent> * :keepjumps normal! mi*`i<CR>')
+local function toggle_star_selection()
+    if vim.fn.getreg('/') ~= '' then
+        vim.fn.setreg('/', '')
+    else
+        pcall(vim.cmd, 'normal! mi*`i<CR>')
+    end
+end
+
+-- Map the * key to call the toggle_star_selection function
+keyset('n', '*', toggle_star_selection, {noremap = true, silent = true})
+
 
 vim.cmd('nnoremap <silent> # :nohl<CR>')
 

@@ -8,11 +8,29 @@ vim.cmd([[hi default GuihuaListDark gui=bold,underline]])
 vim.cmd([[hi default GuihuaTextViewHl guifg=#e0d8f4 guibg=#404254]])
 
 vim.cmd("autocmd FileType guihua* lua require('cmp').setup.buffer { enabled = false }")
+local function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
 
 require("navigator").setup({
   transparency = 100,
-  mason = true,
+  mason = false,
   default_mapping = false,
+  on_attach = function(client, bufnr)
+  end,
+  lsp_signature_help = true,
+  lsp = {
+    disable_lsp = 'all'
+  },
   keymaps = {
     { key = 'gr', func = require('navigator.reference').async_ref,   desc = 'async_ref' },
     {
