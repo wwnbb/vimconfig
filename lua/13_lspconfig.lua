@@ -1,12 +1,26 @@
 vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float()]]
 
+local lspconfig = require 'lspconfig'
 
+local configs = require 'lspconfig.configs'
+
+configs.solidity = {
+  default_config = {
+    cmd = {'nomicfoundation-solidity-language-server', '--stdio'},
+    filetypes = { 'solidity' },
+    root_dir = lspconfig.util.find_git_ancestor,
+    single_file_support = true,
+  },
+}
+
+lspconfig.solidity.setup {}
 
 require("mason-lspconfig").setup_handlers {
   -- The first entry (without a key) will be the default handler
   -- and will be called for each installed server that doesn't have
   -- a dedicated handler.
   function(server_name) -- default handler (optional)
+
     if server_name == "pyright" then
       local capabilities = vim.lsp.protocol.make_client_capabilities()
 
