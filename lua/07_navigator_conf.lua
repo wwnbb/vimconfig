@@ -8,6 +8,7 @@ vim.cmd([[hi default GuihuaListDark gui=bold,underline]])
 vim.cmd([[hi default GuihuaTextViewHl guifg=#e0d8f4 guibg=#404254]])
 
 vim.cmd("autocmd FileType guihua* lua require('cmp').setup.buffer { enabled = false }")
+
 local function dump(o)
    if type(o) == 'table' then
       local s = '{ '
@@ -23,13 +24,16 @@ end
 
 require("navigator").setup({
   transparency = 100,
-  mason = false,
+  mason = true,
   default_mapping = false,
   on_attach = function(client, bufnr)
+    -- print('on_attach from navigator', client.name, bufnr)
+    require('navigator.lspclient.mapping').setup({bufnr=bufnr, client=client})
   end,
   lsp_signature_help = true,
   lsp = {
-    disable_lsp = 'all'
+    enable = true,
+    disable_lsp = 'all',
   },
   keymaps = {
     { key = 'gr', func = require('navigator.reference').async_ref,   desc = 'async_ref' },
