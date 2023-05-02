@@ -29,3 +29,10 @@ keyset('n', 'K', show_lsp_documentation, { noremap = true, silent = true })
 
 
 keyset('n', '<space>n', explore, { noremap = true, silent = true })
+
+
+local function plenary_test_file()
+  require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))
+end
+
+keyset('n', '<space>tl', plenary_test_file, { noremap = true})
