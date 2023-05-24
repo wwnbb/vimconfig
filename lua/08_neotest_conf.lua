@@ -4,6 +4,10 @@ vim.diagnostic.config({ virtual_text = true })
 
 
 require("neotest").setup({
+    quickfix = {
+      enabled = false,
+      open = false
+    },
     adapters = {
       require("neotest-go")({
           experimental = {

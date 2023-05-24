@@ -17,7 +17,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp-signature-help'
+  use 'ray-x/lsp_signature.nvim'
   use 'SirVer/ultisnips'
   use 'quangnguyen30192/cmp-nvim-ultisnips'
   use { 'L3MON4D3/LuaSnip', run = 'make install_jsregexp' }
@@ -44,9 +44,9 @@ return require('packer').startup(function(use)
 
   use 'nvim-lua/plenary.nvim'
 
-  use { 'nvim-neotest/neotest', tag = 'v2.5.0' }
-  use 'nvim-neotest/neotest-go'
+  use 'nvim-neotest/neotest'
   use 'nvim-neotest/neotest-python'
+  use 'nvim-neotest/neotest-go'
 
   use 'vim-test/vim-test'
 
