@@ -11,7 +11,7 @@ api.nvim_create_autocmd("FileType",
 )
 
 vim.g.copilot_filetypes = {
-  ['*'] = false,
+  ['*'] = true,
   ['javascript'] = true,
   ['typescript'] = true,
   ['vue'] = true,

@@ -47,6 +47,7 @@ return require('packer').startup(function(use)
   use 'nvim-neotest/neotest'
   use 'nvim-neotest/neotest-python'
   use 'nvim-neotest/neotest-go'
+  use {'krivahtoo/silicon.nvim', run = './install.sh build'}
 
   use 'vim-test/vim-test'
 
