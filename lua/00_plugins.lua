@@ -17,6 +17,15 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
+  use({
+    "roobert/tailwindcss-colorizer-cmp.nvim",
+    -- optionally, override the default options:
+    config = function()
+      require("tailwindcss-colorizer-cmp").setup({
+        color_square_width = 2,
+      })
+    end
+  })
   use 'ray-x/lsp_signature.nvim'
   use 'SirVer/ultisnips'
   use 'quangnguyen30192/cmp-nvim-ultisnips'
@@ -93,4 +102,7 @@ return require('packer').startup(function(use)
   use { "github/copilot.vim" }
   use { 'akinsho/git-conflict.nvim', tag = "*" }
   use { 'ray-x/navigator.lua', requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' } }
+
+  use 'NvChad/nvim-colorizer.lua'
+  use 'nvim-treesitter/playground'
 end)

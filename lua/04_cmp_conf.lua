@@ -122,6 +122,7 @@ cmp.setup({
         nvim_lua = "[Lua]",
         latex_symbols = "[LaTeX]",
       })[entry.source.name]
+      require('tailwindcss-colorizer-cmp').formatter(entry, vim_item)
       return vim_item
     end
   },

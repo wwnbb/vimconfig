@@ -13,6 +13,7 @@ set laststatus=3 " Only shows one status line
 set showtabline=2 " always shows tab line
 set noshowmode " Dont show -- INSERT MODE ---
 
+set conceallevel=2
 
 " Disable frustrating airline stuff on tabline
 let g:airline#extensions#tabline#enabled = 1

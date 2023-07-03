@@ -41,3 +41,10 @@ vim.cmd([[hi CmpItemAbbrMatch guifg=#b58900 guibg=#fdf6e3]])
 vim.cmd([[hi CmpItemAbbrMatchFuzzy guifg=#b58900 guibg=#fdf6e3]])
 
 vim.opt.fillchars = { diff = '╱' }
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "typescriptreact",
+  callback = function(args)
+    vim.cmd([[highlight link @tag NONE]])
+  end
+})
