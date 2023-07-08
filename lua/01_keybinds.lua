@@ -1,3 +1,4 @@
+local tailwind_classes_fold = require('tailwind-classes-fold')
 local keyset = vim.keymap.set
 
 
@@ -36,3 +37,9 @@ local function plenary_test_file()
 end
 
 keyset('n', '<space>tl', plenary_test_file, { noremap = true})
+
+
+keyset('n', 'zt', function()
+  tailwind_classes_fold.toggle_conceal()
+end)
+

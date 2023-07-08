@@ -105,4 +105,7 @@ return require('packer').startup(function(use)
 
   use 'NvChad/nvim-colorizer.lua'
   use 'nvim-treesitter/playground'
+
+  use 'ellisonleao/glow.nvim'
+  use 'wwnbb/tailwind-classes-fold'
 end)

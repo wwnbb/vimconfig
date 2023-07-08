@@ -8,3 +8,10 @@ require("colorizer").setup({
         mode = "background",
       }
 })
+require("glow").setup({
+  border = "rounded",
+  style = "dark",
+  width = 120,
+})
+
+require("tailwind-classes-fold").setup()
