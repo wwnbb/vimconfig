@@ -10,19 +10,19 @@ api.nvim_create_autocmd("FileType",
   }
 )
 
-vim.g.copilot_filetypes = {
-  ['*'] = true,
-  ['javascript'] = true,
-  ['typescript'] = true,
-  ['vue'] = true,
-  ['lua'] = true,
-  ['html'] = true,
-  ['python'] = true,
-  ['go'] = true,
-  ['golang'] = true,
-}
-
-vim.g.copilot_no_tab_map = true
+-- vim.g.copilot_filetypes = {
+--   ['*'] = true,
+--   ['javascript'] = true,
+--   ['typescript'] = true,
+--   ['vue'] = true,
+--   ['lua'] = true,
+--   ['html'] = true,
+--   ['python'] = true,
+--   ['go'] = true,
+--   ['golang'] = true,
+-- }
+--
+-- vim.g.copilot_no_tab_map = true
 
 
 -- No more stupid wrapping

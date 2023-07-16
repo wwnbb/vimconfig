@@ -99,7 +99,7 @@ return require('packer').startup(function(use)
     end,
     requires = "nvim-treesitter/nvim-treesitter",
   }
-  use { "github/copilot.vim" }
+  -- use { "github/copilot.vim" }
   use { 'akinsho/git-conflict.nvim', tag = "*" }
   use { 'ray-x/navigator.lua', requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' } }
 
@@ -108,4 +108,5 @@ return require('packer').startup(function(use)
 
   use 'ellisonleao/glow.nvim'
   use 'wwnbb/tailwind-classes-fold'
+  use 'github/copilot.vim'
 end)

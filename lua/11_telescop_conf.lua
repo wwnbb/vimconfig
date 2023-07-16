@@ -1,14 +1,14 @@
 local keyset = vim.keymap.set
 
 local telescope = require('telescope')
-require('telescope-makefile').setup{
+require('telescope-makefile').setup {
   -- The path where to search the makefile in the priority order
   makefile_priority = { '.', 'build/' },
   default_target = '[DEFAULT]', -- nil or string : Name of the default target | nil will disable the default_target
-  make_bin = "make", -- Custom makefile binary path, uses system make by def
+  make_bin = "make",            -- Custom makefile binary path, uses system make by def
 }
 
-telescope.setup{
+telescope.setup {
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
@@ -32,7 +32,7 @@ telescope.setup{
       theme = "ivy",
     },
     git_branches = {
-      cmd = {"git", "branch", "--format", "%(refname:lstrip=2)"},
+      cmd = { "git", "branch", "--format", "%(refname:lstrip=2)" },
     }
     -- Default configuration for builtin pickers goes here:
     -- picker_name = {
@@ -46,12 +46,20 @@ telescope.setup{
 }
 
 local tele = require('telescope.builtin')
+
 keyset('n', '<space>f', tele.find_files, {})
 keyset('v', '<space>S', tele.grep_string, {})
-keyset('n', '<space>s', tele.live_grep, {})
+keyset('n', '<space>S', tele.live_grep, {})
+keyset('n', '<space>t', tele.resume, {})
+keyset('n', '<space>s', tele.lsp_dynamic_workspace_symbols, { noremap = true, silent = true })
 keyset('n', '<space>b', tele.buffers, {})
 keyset('n', '<space>gb', tele.git_branches, {})
-keyset('n', '<space>gc', tele.git_commits, {})
+keyset('n', '<space>gc', function()
+  require('telescope.builtin').git_commits({
+    git_command = { "git", "log", "--oneline", "--pretty=format:'%h - %an - %s - %ad'",
+      "--date=format:'%Y-%m-%d %H:%M:%S", "diff" }
+  })
+end, { noremap = true, silent = true })
 keyset('n', '<space>h', tele.help_tags, {})
 keyset('n', 'gd', tele.lsp_definitions, { noremap = true, silent = true })
 keyset('n', 'gr', tele.lsp_references, { noremap = true, silent = true })
