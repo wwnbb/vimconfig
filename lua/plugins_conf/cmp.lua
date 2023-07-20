@@ -106,6 +106,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'luasnip',                score = 4 }, -- For luasnip users.
     { name = 'nvim_lsp',               score = 3 },
+    { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
   }, {
     { name = 'buffer' },

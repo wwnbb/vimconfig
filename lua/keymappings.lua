@@ -3,15 +3,15 @@ local keyset = vim.keymap.set
 
 
 local function toggle_star_selection()
-    if vim.fn.getreg('/') ~= '' then
-        vim.fn.setreg('/', '')
-    else
-        pcall(vim.cmd, 'normal! mi*`i<CR>')
-    end
+  if vim.fn.getreg('/') ~= '' then
+    vim.fn.setreg('/', '')
+  else
+    pcall(vim.cmd, 'normal! mi*`i<CR>')
+  end
 end
 
 -- Map the * key to call the toggle_star_selection function
-keyset('n', '*', toggle_star_selection, {noremap = true, silent = true})
+keyset('n', '*', toggle_star_selection, { noremap = true, silent = true })
 
 
 vim.cmd('nnoremap <silent> # :nohl<CR>')
@@ -36,10 +36,9 @@ local function plenary_test_file()
   require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))
 end
 
-keyset('n', '<space>tl', plenary_test_file, { noremap = true})
+keyset('n', '<space>tl', plenary_test_file, { noremap = true })
 
 
 keyset('n', 'zt', function()
   tailwind_classes_fold.toggle_conceal()
 end)
-

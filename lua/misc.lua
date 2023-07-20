@@ -93,3 +93,17 @@ vim.cmd([[set nofoldenable]])
 
 -- clean up search highlighting
 vim.fn.setreg('/', '')
+
+
+-- Diagnostics border
+vim.diagnostic.config {
+  float = {
+    border = "rounded",
+    source = "always",
+  },
+  virtual_text = {
+    source = "always",
+    prefix = '●', -- Could be '■', '▎', 'x'
+  },
+  severity_sort = true,
+}

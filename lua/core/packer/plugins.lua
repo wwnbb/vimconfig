@@ -44,7 +44,6 @@ return require('packer').startup(function(use)
     end,
   }
 
-  use 'jose-elias-alvarez/null-ls.nvim'
   use 'mfussenegger/nvim-dap'
   use 'leoluz/nvim-dap-go'
   use 'rcarriga/nvim-dap-ui'
@@ -83,7 +82,7 @@ return require('packer').startup(function(use)
   }
 
   use 'echasnovski/mini.nvim'
-  use { 'edkolev/tmuxline.vim', tag = '*' }
+--  use { 'edkolev/tmuxline.vim', tag = '*' }
   use {
     'smjonas/inc-rename.nvim',
     config = function()
@@ -101,7 +100,6 @@ return require('packer').startup(function(use)
   }
   -- use { "github/copilot.vim" }
   use { 'akinsho/git-conflict.nvim', tag = "*" }
-  use { 'ray-x/navigator.lua', requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' } }
 
   use 'NvChad/nvim-colorizer.lua'
   use 'nvim-treesitter/playground'
