@@ -23,10 +23,7 @@ local function explore()
   api.tree.toggle({ find_file = true, focus = true, path = "<arg>" })
 end
 
-local function show_lsp_documentation()
-  vim.lsp.buf.hover()
-end
-keyset('n', 'K', show_lsp_documentation, { noremap = true, silent = true })
+keyset('n', 'K', vim.lsp.buf.hover, { noremap = true, silent = true })
 
 
 keyset('n', '<space>n', explore, { noremap = true, silent = true })
@@ -42,3 +39,5 @@ keyset('n', '<space>tl', plenary_test_file, { noremap = true })
 keyset('n', 'zt', function()
   tailwind_classes_fold.toggle_conceal()
 end)
+
+keyset('n', '<space>r', vim.lsp.buf.rename, {})

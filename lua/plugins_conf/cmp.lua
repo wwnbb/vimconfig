@@ -1,6 +1,4 @@
 local cmp = require 'cmp'
-local configs = require('lspconfig/configs')
-local util = require('lspconfig/util')
 local luasnip = require("luasnip")
 
 local kind_icons = {
@@ -106,14 +104,12 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'luasnip',                score = 4 }, -- For luasnip users.
     { name = 'nvim_lsp',               score = 3 },
-    { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
   }, {
     { name = 'buffer' },
   }),
   formatting = {
     format = function(entry, vim_item)
-      -- Kind icons
       vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       -- Source
       vim_item.menu = ({
@@ -155,6 +151,4 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   })
 })
-
-
 require("luasnip.loaders.from_vscode").lazy_load()

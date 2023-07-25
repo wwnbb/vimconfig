@@ -1,10 +1,9 @@
 -- Install Packer if it's not already installed
 require 'core.packer'
-require 'core.lsp.mason_auto_loader'
+require 'core.lsp'
 require 'highlights'
 require 'keymappings'
 require 'misc'
-require 'plugins_conf.extra'
 
 require 'plugins_conf'
 

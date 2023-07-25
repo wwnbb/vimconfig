@@ -55,7 +55,7 @@ return require('packer').startup(function(use)
   use 'nvim-neotest/neotest'
   use 'nvim-neotest/neotest-python'
   use 'nvim-neotest/neotest-go'
-  use {'krivahtoo/silicon.nvim', run = './install.sh build'}
+  use { 'krivahtoo/silicon.nvim', run = './install.sh build' }
 
   use 'vim-test/vim-test'
 
@@ -82,7 +82,9 @@ return require('packer').startup(function(use)
   }
 
   use 'echasnovski/mini.nvim'
---  use { 'edkolev/tmuxline.vim', tag = '*' }
+  --  use { 'edkolev/tmuxline.vim', tag = '*' }
+  use 'shaunsingh/solarized.nvim'
+
   use {
     'smjonas/inc-rename.nvim',
     config = function()
@@ -107,4 +109,5 @@ return require('packer').startup(function(use)
   use 'ellisonleao/glow.nvim'
   use 'wwnbb/tailwind-classes-fold'
   use 'github/copilot.vim'
+  use 'jose-elias-alvarez/null-ls.nvim'
 end)
