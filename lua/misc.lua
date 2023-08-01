@@ -106,4 +106,5 @@ vim.diagnostic.config {
     prefix = '●', -- Could be '■', '▎', 'x'
   },
   severity_sort = true,
+  update_in_insert = true,
 }

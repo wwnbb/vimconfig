@@ -1,11 +1,12 @@
 -- Install Packer if it's not already installed
 require 'core.packer'
+require 'plugins_conf'
 require 'core.lsp'
 require 'highlights'
-require 'keymappings'
 require 'misc'
 
-require 'plugins_conf'
+
+require 'keymappings'
 
 for _, f in ipairs(vim.fn.globpath('~/.config/nvim/vim_config/', '*', false, true)) do
   vim.cmd('source ' .. f)

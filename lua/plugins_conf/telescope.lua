@@ -1,5 +1,3 @@
-local keyset = vim.keymap.set
-
 local telescope = require('telescope')
 require('telescope-makefile').setup {
   -- The path where to search the makefile in the priority order
@@ -44,35 +42,3 @@ telescope.setup {
   },
   extensions = {}
 }
-
-local tele = require('telescope.builtin')
-
-keyset('n', '<space>f', tele.find_files, {})
-keyset('v', '<space>S', tele.grep_string, {})
-keyset('n', '<space>S', tele.live_grep, {})
-keyset('n', '<space>t', tele.resume, {})
-keyset('n', '<space>s', tele.lsp_dynamic_workspace_symbols, { noremap = true, silent = true })
-keyset('n', '<space>b', tele.buffers, {})
-keyset('n', '<space>gb', tele.git_branches, {})
-keyset('n', '<space>gc', function()
-  require('telescope.builtin').git_commits({
-    git_command = { "git", "log", "--oneline", "--pretty=format:'%h - %an - %s - %ad'",
-      "--date=format:'%Y-%m-%d %H:%M:%S", "diff" }
-  })
-end, { noremap = true, silent = true })
-keyset('n', '<space>h', tele.help_tags, {})
-keyset('n', 'gd', tele.lsp_definitions, { noremap = true, silent = true })
-keyset('n', 'gr', tele.lsp_references, { noremap = true, silent = true })
-
-keyset('n', '<space>m', ':Telescope make<CR>', {})
-
-local make = telescope.extensions.make
-local cursor_theme = require('telescope.themes').get_cursor({})
-local ivy_theme = require('telescope.themes').get_ivy({})
-local github = telescope.extensions.gh
-
-local function github_menu()
-  github.run({})
-end
-
-keyset('n', '<space>tg', github_menu, {})
