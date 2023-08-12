@@ -57,10 +57,7 @@ keyset('n', '<space>s', tele.lsp_dynamic_workspace_symbols, { noremap = true, si
 keyset('n', '<space>b', tele.buffers, {})
 keyset('n', '<space>gb', tele.git_branches, {})
 keyset('n', '<space>gc', function()
-  require('telescope.builtin').git_commits({
-    git_command = { "git", "log", "--oneline", "--pretty=format:'%h - %an - %s - %ad'",
-      "--date=format:'%Y-%m-%d %H:%M:%S", "diff" }
-  })
+  require('telescope.builtin').git_commits()
 end, { noremap = true, silent = true })
 keyset('n', '<space>h', tele.help_tags, {})
 
