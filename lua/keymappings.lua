@@ -1,6 +1,8 @@
 local tailwind_classes_fold = require('tailwind-classes-fold')
 local keyset = vim.keymap.set
 
+local copy_diagnostic = require 'utils.copy_diagnostic'
+
 -- VIM EXTRA KEYBINDINGS
 local function toggle_star_selection()
   if vim.fn.getreg('/') ~= '' then
@@ -78,3 +80,5 @@ keyset('n', '<space>tg', github_menu, {})
 
 -- LSP
 keyset('n', '<space>r', vim.lsp.buf.rename, {})
+
+keyset('n', '<space>e', copy_diagnostic.copy_diagnostic_to_clipboard, { silent = true })

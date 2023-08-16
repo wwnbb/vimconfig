@@ -3,6 +3,7 @@ require("dressing").setup({
     override = function(conf)
       conf.col = -1
       conf.row = 0
+      conf.anchor = "SW"
       return conf
     end,
     -- Set to false to disable the vim.ui.input implementation
@@ -21,7 +22,6 @@ require("dressing").setup({
     start_in_insert = true,
 
     -- These are passed to nvim_open_win
-    anchor = "SW",
     border = "rounded",
     -- 'editor' and 'win' will default to being centered
     relative = "cursor",
@@ -115,7 +115,6 @@ require("dressing").setup({
     -- Options for built-in selector
     builtin = {
       -- These are passed to nvim_open_win
-      anchor = "NW",
       border = "rounded",
       -- 'editor' and 'win' will default to being centered
       relative = "editor",

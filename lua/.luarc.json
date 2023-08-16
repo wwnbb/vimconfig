@@ -68,6 +68,7 @@
         "/Users/admin/.local/share/nvim/site/pack/packer/start/playground/after",
         "/Users/admin/.local/share/nvim/site/pack/packer/start/ultisnips/after",
         "/Users/admin/.local/share/nvim/site/pack/packer/start/vim-polyglot/after",
+        "${3rd}/luassert/library",
         "${3rd}/luassert/library"
     ]
 }
