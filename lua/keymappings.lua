@@ -50,6 +50,7 @@ local tmake = telescope.extensions.make
 local cursor_theme = require('telescope.themes').get_cursor({})
 local ivy_theme = require('telescope.themes').get_ivy({})
 local github = telescope.extensions.gh
+local bufopts = { noremap = true, silent = true }
 
 keyset('n', '<space>f', tele.find_files, {})
 keyset('v', '<space>S', tele.grep_string, {})
@@ -63,6 +64,8 @@ keyset('n', '<space>gc', function()
 end, { noremap = true, silent = true })
 keyset('n', '<space>h', tele.help_tags, {})
 
+keyset('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+
 keyset('n', 'gd', ':Telescope lsp_definitions theme=ivy<CR>', { noremap = true, silent = true })
 
 keyset('n', 'gr', ':Telescope lsp_references theme=ivy<CR>', { noremap = true, silent = true })
@@ -70,6 +73,18 @@ keyset('n', 'gr', ':Telescope lsp_references theme=ivy<CR>', { noremap = true, s
 keyset('n', 'gi', ':Telescope lsp_implementations theme=ivy<CR>', { noremap = true, silent = true })
 
 keyset('n', '<space>m', ':Telescope make theme=ivy<CR>', {})
+
+keyset('n', '<leader>a', vim.lsp.buf.code_action, bufopts)
+
+keyset('n', '<F3>', '', {
+  noremap = true,
+  callback = function()
+    local set = vim.opt
+    set.number = not set.number:get()
+    set.relativenumber = set.number:get()
+  end
+})
+
 
 local function github_menu()
   github.run({})

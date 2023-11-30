@@ -54,7 +54,7 @@ return require('packer').startup(function(use)
 
   use 'nvim-neotest/neotest'
   use 'nvim-neotest/neotest-python'
-  use 'nvim-neotest/neotest-go'
+  -- use 'nvim-neotest/neotest-go'
   use { 'krivahtoo/silicon.nvim', run = './install.sh build' }
 
   use 'vim-test/vim-test'
@@ -105,9 +105,11 @@ return require('packer').startup(function(use)
 
   use 'NvChad/nvim-colorizer.lua'
   use 'nvim-treesitter/playground'
+  use 'folke/neodev.nvim'
 
   use 'ellisonleao/glow.nvim'
   use 'wwnbb/tailwind-classes-fold'
+  use '~/work/lua/neotest-go'
   use 'github/copilot.vim'
   use 'jose-elias-alvarez/null-ls.nvim'
 end)
