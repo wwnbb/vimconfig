@@ -5,6 +5,24 @@ mason.setup()
 local mason_lspconfig = require("mason-lspconfig")
 mason_lspconfig.setup()
 
+--- Generates the LSP client capabilities
+--- @return table
+local function default_capabilities()
+  -- Client capabilities
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+  --- Setup capabilities to support utf-16, since copilot.lua only works with utf-16
+  --- this is a workaround to the limitations of copilot language server
+  capabilities = vim.tbl_deep_extend('force', capabilities, {
+    offsetEncoding = { 'utf-16' },
+    general = {
+      positionEncodings = { 'utf-16' },
+    },
+  })
+
+  return capabilities
+end
+
 local lspconfig = require 'lspconfig'
 
 require("mason-lspconfig").setup_handlers {
@@ -12,12 +30,11 @@ require("mason-lspconfig").setup_handlers {
     local server = lspconfig[server_name]
     -- Attempt to load the server's configuration
     local server_path = 'core.lsp.configs.' .. server_name
-
     local success, config = pcall(require, server_path)
-
     -- If the configuration doesn't exist, use an empty table
     if not success then config = {} end
 
+    config.capabilities = config.capabilities or default_capabilities()
     server.setup(config)
   end,
 }

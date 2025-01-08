@@ -40,7 +40,7 @@ require("dressing").setup({
       winblend = 0,
       -- Disable line wrapping
       wrap = false,
-      winhighlight = "Normal:Normal,NormalNC:Normal"
+      winhighlight = "NormalFloat:RedBackground"
     },
 
     -- Set to `false` to disable

@@ -1,4 +1,10 @@
-require'nvim-treesitter.configs'.setup {
+local disable_function = function(lang)
+  if lang == "vimdoc" then
+    return true
+  end
+end
+
+require 'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
@@ -6,6 +12,7 @@ require'nvim-treesitter.configs'.setup {
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
+    disable = disable_function
   },
   indent = {
     enable = true
@@ -13,7 +20,7 @@ require'nvim-treesitter.configs'.setup {
   playground = {
     enable = true,
     disable = {},
-    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+    updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
     persist_queries = false, -- Whether the query persists across vim sessions
     keybindings = {
       toggle_query_editor = 'o',
@@ -29,4 +36,3 @@ require'nvim-treesitter.configs'.setup {
     },
   }
 }
-

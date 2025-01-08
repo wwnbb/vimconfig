@@ -1,18 +1,23 @@
 require('git-conflict').setup(
   {
-    default_commands = true,    -- disable commands created by this plugin
-    disable_diagnostics = true, -- This will disable the diagnostics in a buffer whilst it is conflicted
-    highlights = {              -- They must have background color, otherwise the default color will be used
+    highlights = {
       incoming = 'DiffText',
       current = 'DiffAdd',
     },
-    default_mappings = {
-      ours = '<leader>a',
-      theirs = '<leader>e',
-      none = '<leader>c',
-      both = '<leader>o',
-      next = '<leader>n',
-      prev = '<leader>p',
-    },
+    disable_diagnostics = false,
   }
 )
+
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'GitConflictDetected',
+  callback = function()
+    vim.notify('Conflict detected in ' .. vim.fn.expand('<afile>'))
+    vim.cmd("GitConflictRefresh")
+    vim.keymap.set('n', '<leader>a', '<Plug>(git-conflict-ours)')
+    vim.keymap.set('n', '<leader>e', '<Plug>(git-conflict-theirs)')
+    vim.keymap.set('n', '<leader>o', '<Plug>(git-conflict-both)')
+    vim.keymap.set('n', '<leader>x', '<Plug>(git-conflict-none)')
+    vim.keymap.set('n', '<leader>cp', '<Plug>(git-conflict-prev-conflict)')
+    vim.keymap.set('n', '<leader>cn', '<Plug>(git-conflict-next-conflict)')
+  end
+})

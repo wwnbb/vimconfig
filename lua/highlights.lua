@@ -6,13 +6,13 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = '#7b62a3' })
     vim.api.nvim_set_hl(0, "DiagnosticError", { fg = '#df2325' })
 
-    vim.api.nvim_set_hl(0, "Pmenu", { bg = '#fdf6e3' })
-    vim.api.nvim_set_hl(0, "PmenuSel", { bg = '#eee8d5', bold = false })
+    vim.api.nvim_set_hl(0, "Pmenu", { link = "Normal" })
+    vim.api.nvim_set_hl(0, "PmenuSel", { link = "CursorLine" })
     vim.api.nvim_set_hl(0, "LspReferenceRead", { underdotted = true })
     vim.api.nvim_set_hl(0, "LspReferenceWrite", { bg = '#d0d9a4' })
     vim.api.nvim_set_hl(0, "LspReferenceText", { bg = '#d0d9a4' })
     vim.api.nvim_set_hl(0, "Visual", { reverse = true, bg = '#002b36' })
-    vim.api.nvim_set_hl(0, "TelescopeSelection", { reverse = true, bg = '#eee8d5' })
+    vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = '#000000', fg = '#FFFFFF' })
     vim.api.nvim_set_hl(0, "@variable", { fg = '#586e75' })
   end
 })
@@ -39,12 +39,13 @@ vim.cmd([[hi CmpItemKind guifg=#839496 guibg=#fdf6e3]])
 
 vim.cmd([[hi CmpItemAbbrMatch guifg=#b58900 guibg=#fdf6e3]])
 vim.cmd([[hi CmpItemAbbrMatchFuzzy guifg=#b58900 guibg=#fdf6e3]])
+-- vim.cmd([[hi TelescopeSelection guibg=#7370d4 guifg=#000000]])
 
 vim.opt.fillchars = { diff = '╱' }
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "typescriptreact",
-  callback = function(args)
+  callback = function(_)
     vim.cmd([[highlight link @tag NONE]])
   end
 })

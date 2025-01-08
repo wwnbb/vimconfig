@@ -1,5 +1,7 @@
 -- Install Packer if it's not already installed
-require 'core.packer'
+-- require 'core.packer'
+
+require 'core.lazy'
 require 'plugins_conf'
 require 'core.lsp'
 require 'misc'

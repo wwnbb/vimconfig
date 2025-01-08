@@ -10,20 +10,12 @@ api.nvim_create_autocmd("FileType",
   }
 )
 
--- vim.g.copilot_filetypes = {
---   ['*'] = true,
---   ['javascript'] = true,
---   ['typescript'] = true,
---   ['vue'] = true,
---   ['lua'] = true,
---   ['html'] = true,
---   ['python'] = true,
---   ['go'] = true,
---   ['golang'] = true,
--- }
---
--- vim.g.copilot_no_tab_map = true
-
+-- Disable highlight on lsp hover
+vim.api.nvim_create_autocmd('ColorScheme', {
+  callback = function()
+    vim.api.nvim_set_hl(0, 'LspReferenceTarget', {})
+  end,
+})
 
 -- No more stupid wrapping
 vim.opt.wrap = false
@@ -56,9 +48,9 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Set colors in terminal
-vim.opt.termguicolors = true
-vim.opt.background = "light"
-vim.cmd("colorscheme NeoSolarized")
+-- vim.opt.termguicolors = true
+-- vim.opt.background = "light"
+-- vim.cmd("colorscheme NeoSolarized")
 
 -- crontab filetype tweak
 vim.cmd([[au FileType crontab setlocal bkc=yes]])
@@ -107,4 +99,25 @@ vim.diagnostic.config {
   },
   severity_sort = true,
   update_in_insert = true,
+}
+
+
+vim.g.copilot_filetypes = {
+  ['*'] = true,
+  python = true,
+  javascript = true,
+  typescript = true,
+  typescriptreact = true,
+  javascriptreact = true,
+  html = true,
+  css = true,
+  scss = true,
+  sass = true,
+  go = true,
+  rust = true,
+  c = true,
+  cpp = true,
+  java = true,
+  lua = true,
+  vim = true,
 }

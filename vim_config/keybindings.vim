@@ -1,6 +1,3 @@
-"LEADER
-let mapleader=","
-
 "############## NAVIGATION ###############
 " split pane navigation
 nnoremap <C-J> <C-W><C-J>
@@ -90,23 +87,3 @@ nnoremap <silent> <space>c :e $NVIM_CONFIG<CR>
 nnoremap <leader>/ :%s/
 
 imap <silent><script><expr> <C-z> copilot#Accept("\<CR>")
-
-let g:copilot_filetypes = {
-         \ '*': v:false,
-         \ 'python': v:true,
-         \ 'javascript': v:true,
-         \ 'typescript': v:true,
-         \ 'typescriptreact': v:true,
-         \ 'javascriptreact': v:true,
-         \ 'html': v:true,
-         \ 'css': v:true,
-         \ 'scss': v:true,
-         \ 'sass': v:true,
-         \ 'go': v:true,
-         \ 'rust': v:true,
-         \ 'c': v:true,
-         \ 'cpp': v:true,
-         \ 'java': v:true,
-         \ 'lua': v:true,
-         \ 'vim': v:true,
-         \ }
