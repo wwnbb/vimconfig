@@ -15,24 +15,16 @@ return {
 		},
 	},
 	opts = {
-		-- Define your formatters
+		format_on_save = {},
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "black", "isort" },
+			python = {"isort" },
 			go = { "gofmt", "goimports" },
+			['*'] = { "trim_whitespace" },
 		},
 		-- Set default options
 		default_format_opts = {
 			lsp_format = "fallback",
-		},
-		-- Set up format-on-save
-		format_on_save = { timeout_ms = 500 },
-
-		-- Customize formatters
-		formatters = {
-			shfmt = {
-				prepend_args = { "-i", "2" },
-			},
 		},
 	},
 }

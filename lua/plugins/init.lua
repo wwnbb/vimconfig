@@ -2,10 +2,7 @@ return {
 	"Shougo/neosnippet-snippets",
 	"sheerun/vim-polyglot",
 	"isobit/vim-caddyfile",
-	"akinsho/toggleterm.nvim",
-	"icymind/NeoSolarized",
 	"neovim/nvim-lspconfig",
-	"ray-x/lsp_signature.nvim",
 	"SirVer/ultisnips",
 	{
 		"L3MON4D3/LuaSnip",
@@ -13,25 +10,16 @@ return {
 	},
 	"terrortylor/nvim-comment",
 	"nvim-tree/nvim-tree.lua",
-	"nvim-neotest/nvim-nio",
 	"ishan9299/nvim-solarized-lua",
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-	},
-	"nvim-lua/plenary.nvim",
-	{
-		"nvim-neotest/neotest",
-		dependencies = {
-			"nvim-neotest/neotest-python",
-			"fredrikaverpil/neotest-golang",
-		},
+		version = "*",
 	},
 	{
 		"krivahtoo/silicon.nvim",
 		build = "./install.sh build",
 	},
-	"vim-test/vim-test",
 	"tpope/vim-fugitive",
 	"rbong/vim-flog",
 	{
@@ -40,18 +28,17 @@ return {
 	},
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
+	"sopa0/telescope-makefile",
+
 	{
 		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
 		dependencies = {
 			"nvim-telescope/telescope-dap.nvim",
 			"nvim-telescope/telescope-github.nvim",
-			"sopa0/telescope-makefile",
 		},
 		config = function()
 			local tele = require("telescope")
 			tele.load_extension("fzf")
-			tele.load_extension("make")
 			tele.load_extension("dap")
 			tele.load_extension("gh")
 		end,

@@ -50,7 +50,6 @@ end)
 -- TELESCOPE
 local telescope = require("telescope")
 local tele = require("telescope.builtin")
-local tmake = telescope.extensions.make
 local cursor_theme = require("telescope.themes").get_cursor({})
 local ivy_theme = require("telescope.themes").get_ivy({})
 local github = telescope.extensions.gh

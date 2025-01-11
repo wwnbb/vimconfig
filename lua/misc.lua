@@ -1,20 +1,18 @@
 local vim = vim
 local api = vim.api
 local opt = vim.opt
+vim.o.exrc = true
 
-
-api.nvim_create_autocmd("FileType",
-  {
-    pattern = { "help", "startuptime", "lspinfo", "neotest-output", "toggleterm", "fugitive" },
-    command = [[nnoremap <buffer><silent> q :close<CR>]]
-  }
-)
+api.nvim_create_autocmd("FileType", {
+	pattern = { "help", "startuptime", "lspinfo", "neotest-output", "toggleterm", "fugitive" },
+	command = [[nnoremap <buffer><silent> q :close<CR>]],
+})
 
 -- Disable highlight on lsp hover
-vim.api.nvim_create_autocmd('ColorScheme', {
-  callback = function()
-    vim.api.nvim_set_hl(0, 'LspReferenceTarget', {})
-  end,
+vim.api.nvim_create_autocmd("ColorScheme", {
+	callback = function()
+		vim.api.nvim_set_hl(0, "LspReferenceTarget", {})
+	end,
 })
 
 -- No more stupid wrapping
@@ -65,9 +63,7 @@ vim.cmd([[autocmd BufLeave term://* stopinsert]])
 vim.cmd([[au BufNewFile,BufRead *.py setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4]])
 vim.cmd([[au BufNewFile,BufRead *.lua setlocal et ts=2 sw=2 sts=2]])
 
-
 vim.cmd([[autocmd BufReadPost,FileReadPost * normal zR]])
-
 
 -- Disable built-in providers
 vim.g.loaded_perl_provider = 0
@@ -80,44 +76,41 @@ vim.g.python3_host_prog = "/Users/admin/.config/nvim/.venv/bin/python"
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 
-
 vim.cmd([[set nofoldenable]])
 
 -- clean up search highlighting
-vim.fn.setreg('/', '')
-
+vim.fn.setreg("/", "")
 
 -- Diagnostics border
-vim.diagnostic.config {
-  float = {
-    border = "rounded",
-    source = "always",
-  },
-  virtual_text = {
-    source = "always",
-    prefix = '●', -- Could be '■', '▎', 'x'
-  },
-  severity_sort = true,
-  update_in_insert = true,
-}
-
+vim.diagnostic.config({
+	float = {
+		border = "rounded",
+		source = "always",
+	},
+	virtual_text = {
+		source = "always",
+		prefix = "●", -- Could be '■', '▎', 'x'
+	},
+	severity_sort = true,
+	update_in_insert = true,
+})
 
 vim.g.copilot_filetypes = {
-  ['*'] = true,
-  python = true,
-  javascript = true,
-  typescript = true,
-  typescriptreact = true,
-  javascriptreact = true,
-  html = true,
-  css = true,
-  scss = true,
-  sass = true,
-  go = true,
-  rust = true,
-  c = true,
-  cpp = true,
-  java = true,
-  lua = true,
-  vim = true,
+	["*"] = true,
+	python = true,
+	javascript = true,
+	typescript = true,
+	typescriptreact = true,
+	javascriptreact = true,
+	html = true,
+	css = true,
+	scss = true,
+	sass = true,
+	go = true,
+	rust = true,
+	c = true,
+	cpp = true,
+	java = true,
+	lua = true,
+	vim = true,
 }
