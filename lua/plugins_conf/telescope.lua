@@ -26,22 +26,8 @@ telescope.setup({
 		git_branches = {
 			cmd = { "git", "branch", "--format", "%(refname:lstrip=2)" },
 		},
-		-- Default configuration for builtin pickers goes here:
-		-- picker_name = {
-		--   picker_config_key = value,
-		--   ...
-		-- }
-		-- Now the picker_config_key will be applied every time you call this
-		-- builtin picker
 	},
 	extensions = {},
-})
-
-vim.print(telescope.extensions)
-
-
-require("telescope-makefile").setup({
-	makefile_priority = { ".", "build/" },
 })
 
 vim.api.nvim_create_autocmd("ColorScheme", {
