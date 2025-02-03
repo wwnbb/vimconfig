@@ -87,3 +87,5 @@ nnoremap <silent> <space>c :e $NVIM_CONFIG<CR>
 nnoremap <leader>/ :%s/
 
 imap <silent><script><expr> <C-z> copilot#Accept("\<CR>")
+
+let g:copilot_filetypes = {  'typr': v:false,  }
