@@ -30,7 +30,15 @@ local border = {
 	{ "│", "FloatBorder" },
 }
 
-keyset("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true })
+keyset("n", "K", function()
+	vim.lsp.buf.hover({
+		border = border,
+		focusable = true,
+		max_width = 80,
+		relative = "cursor",
+		anchor_bias = "below",
+	})
+end, { noremap = true, silent = true })
 
 local function explore()
 	-- path = vim.fn.expand("%")
