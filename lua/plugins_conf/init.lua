@@ -1,6 +1,5 @@
 local M = {}
 
-M.dap = require("plugins_conf.dap")
 M.dressing = require("plugins_conf.dressing")
 M.telescope = require("plugins_conf.telescope")
 M.treesitter = require("plugins_conf.treesitter")

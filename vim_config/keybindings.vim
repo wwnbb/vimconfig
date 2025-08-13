@@ -89,3 +89,7 @@ nnoremap <leader>/ :%s/
 imap <silent><script><expr> <C-z> copilot#Accept("\<CR>")
 
 let g:copilot_filetypes = {  'typr': v:false,  }
+
+
+vmap <S-Tab>  mm<`m:<C-U>exec "normal ".&shiftwidth."h"<CR>mmgv`m
+vmap <Tab>    mm>`m:<C-U>exec "normal ".&shiftwidth."l"<CR>mmgv`m

@@ -3,7 +3,6 @@ local keyset = vim.keymap.set
 
 local copy_diagnostic = require("utils.copy_diagnostic")
 
--- VIM EXTRA KEYBINDINGS
 local function toggle_star_selection()
 	if vim.fn.getreg("/") ~= "" then
 		vim.fn.setreg("/", "")
@@ -107,8 +106,9 @@ keyset("n", "<space>r", vim.lsp.buf.rename, {})
 
 keyset("n", "<space>e", copy_diagnostic.copy_diagnostic_to_clipboard, { silent = true })
 
-local tcf = require("tailwind-classes-fold")
-keyset("n", "zt", function()
-	print("toggle conceal")
-	tcf.toggle_conceal()
-end)
+-- nnoremap <silent> ca <cmd>lua vim.lsp.buf.code_action()<CR>
+keyset("n", "<leader>ca", vim.lsp.buf.code_action, { noremap = true, silent = true })
+
+keyset("n", "<space><space>", function()
+	vim.cmd("Noice dismiss")
+end, { noremap = true, silent = true })

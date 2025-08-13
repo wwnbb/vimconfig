@@ -1,4 +1,5 @@
 -- Install Packer if it's not already installed
+vim.deprecate = function() end
 
 require("core.lazy")
 require("plugins_conf")

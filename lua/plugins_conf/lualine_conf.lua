@@ -1,61 +1,6 @@
 -- Eviline config for lualine with Solarized themes
 local lualine = require("lualine")
-
--- Function to get current color scheme based on background setting
-local function get_colors()
-	local is_dark = vim.go.background == "dark"
-	-- Solarized color palette
-	local colors_base = {
-		base03 = "#002b36",
-		base02 = "#073642",
-		base01 = "#586e75",
-		base00 = "#657b83",
-		base0 = "#839496",
-		base1 = "#93a1a1",
-		base2 = "#eee8d5",
-		base3 = "#fdf6e3",
-		yellow = "#b58900",
-		orange = "#cb4b16",
-		red = "#dc322f",
-		magenta = "#d33682",
-		violet = "#6c71c4",
-		blue = "#268bd2",
-		cyan = "#2aa198",
-		green = "#859900",
-	}
-
-	-- Color assignments for dark theme
-	local colors_dark = {
-		text = colors_base.base1, -- background areas
-		text_highlight = colors_base.base2, -- highlighted/selected text
-		background = colors_base.base02, -- emphasized content
-		yellow = colors_base.yellow,
-		orange = colors_base.orange,
-		red = colors_base.red,
-		magenta = colors_base.magenta,
-		violet = colors_base.violet,
-		blue = colors_base.blue,
-		cyan = colors_base.cyan,
-		green = colors_base.green,
-	}
-
-	-- Color assignments for light theme
-	local colors_light = {
-		text = colors_base.base01,
-		text_highlight = colors_base.base02,
-		background = colors_base.base2,
-		yellow = colors_base.yellow,
-		orange = colors_base.orange,
-		red = colors_base.red,
-		magenta = colors_base.magenta,
-		violet = colors_base.violet,
-		blue = colors_base.blue,
-		cyan = colors_base.cyan,
-		green = colors_base.green,
-	}
-
-	return is_dark and colors_dark or colors_light
-end
+local color_utils = require("utils.colors")
 
 local conditions = {
 	buffer_not_empty = function()
@@ -93,22 +38,26 @@ end
 
 -- Create config with dynamic colors
 local function create_config()
-	local colors = get_colors()
+	local colors = color_utils.get_colors()
 
 	local config = {
 		options = {
+			disabled_filetypes = {
+				statusline = { "NvimTree", "Avante", "AvanteInput" },
+				winbar = { "NvimTree", "Avante", "AvanteInput" },
+			},
 			component_separators = "",
 			section_separators = { left = "", right = "" },
 			theme = {
 				normal = {
-					a = { fg = colors.fg, bg = colors.cyan, gui = "bold" },
-					b = { fg = colors.background, bg = colors.text },
-					c = { fg = colors.background, bg = colors.text },
+					a = { bg = colors.fg, fg = colors.cyan, gui = "bold" },
+					b = { bg = colors.background, fg = colors.text },
+					c = { bg = colors.background, fg = colors.text },
 				},
 				inactive = {
-					a = { fg = colors.fg, bg = colors.text },
-					b = { fg = colors.background, bg = colors.text },
-					c = { fg = colors.background, bg = colors.text },
+					a = { bg = colors.fg, fg = colors.text },
+					b = { bg = colors.background, fg = colors.text },
+					c = { bg = colors.background, fg = colors.text },
 				},
 			},
 		},
@@ -176,7 +125,7 @@ local function create_config()
 			return mode_map[vim.fn.mode()]
 		end,
 		color = function()
-			mode_color = {
+			local mode_color = {
 				n = colors.blue, -- Normal
 				i = colors.green, -- Insert
 				v = colors.magenta, -- Visual
@@ -198,15 +147,15 @@ local function create_config()
 				["!"] = colors.blue, -- Shell
 				t = colors.blue, -- Terminal
 			}
-			return { fg = mode_color[vim.fn.mode()], bg = colors.text_highlight }
+			return { bg = mode_color[vim.fn.mode()], fg = colors.text_highlight }
 		end,
-		padding = { right = 1 },
+		padding = { right = 1, left = 1 },
 	})
-
+	ins_left({ "macro_recording", "%S", color = { fg = colors.cyan, bg = colors.text_highlight, gui = "bold" } })
 	ins_left({
 		"filesize",
 		cond = conditions.buffer_not_empty,
-		color = { fg = colors.background, bg = colors.text },
+		color = { bg = colors.background, fg = colors.text },
 	})
 
 	-- Add the relative file path component
@@ -215,17 +164,17 @@ local function create_config()
 			return get_relative_file_path()
 		end,
 		cond = conditions.buffer_not_empty,
-		color = { fg = colors.background, bg = colors.text, gui = "bold" },
+		color = { bg = colors.background, fg = colors.text, gui = "bold" },
 	})
 
 	ins_left({
 		"location",
-		color = { fg = colors.background, bg = colors.text },
+		color = { bg = colors.background, fg = colors.text },
 	})
 
 	ins_left({
 		"progress",
-		color = { fg = colors.background, bg = colors.text, gui = "bold" },
+		color = { bg = colors.background, fg = colors.text, gui = "bold" },
 	})
 
 	ins_left({
@@ -237,7 +186,7 @@ local function create_config()
 			warn = { fg = colors.yellow },
 			info = { fg = colors.cyan },
 		},
-		color = { bg = colors.text },
+		color = { fg = colors.text },
 	})
 
 	ins_left({
@@ -246,44 +195,24 @@ local function create_config()
 		end,
 	})
 
-	ins_left({
-		function()
-			local msg = "No Active Lsp"
-			local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
-			local clients = vim.lsp.get_clients()
-			if next(clients) == nil then
-				return msg
-			end
-			for _, client in ipairs(clients) do
-				local filetypes = client.config.filetypes
-				if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-					return client.name
-				end
-			end
-			return msg
-		end,
-		icon = " LSP:",
-		color = { fg = colors.background, bg = colors.text, gui = "bold" },
-	})
-
 	ins_right({
 		"o:encoding",
 		fmt = string.upper,
 		cond = conditions.hide_in_width,
-		color = { fg = colors.background, bg = colors.text, gui = "bold" },
+		color = { bg = colors.background, fg = colors.text, gui = "bold" },
 	})
 
 	ins_right({
 		"fileformat",
 		fmt = string.upper,
 		icons_enabled = false,
-		color = { fg = colors.background, bg = colors.text, gui = "bold" },
+		color = { fg = colors.text, bg = colors.background, gui = "bold" },
 	})
 
 	ins_right({
 		"branch",
 		icon = "",
-		color = { fg = colors.background, bg = colors.text, gui = "bold" },
+		color = { fg = colors.text, bg = colors.background, gui = "bold" },
 	})
 
 	ins_right({
@@ -295,7 +224,7 @@ local function create_config()
 			removed = { fg = colors.red },
 		},
 		cond = conditions.hide_in_width,
-		color = { bg = colors.text },
+		color = { fg = colors.text },
 	})
 
 	ins_right({

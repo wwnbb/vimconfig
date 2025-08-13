@@ -26,8 +26,6 @@ return {
 		"nvim-telescope/telescope-fzf-native.nvim",
 		build = "make",
 	},
-	"williamboman/mason.nvim",
-	"williamboman/mason-lspconfig.nvim",
 	"sopa0/telescope-makefile",
 
 	{
@@ -63,10 +61,8 @@ return {
 		version = "*",
 	},
 	"NvChad/nvim-colorizer.lua",
-	"wwnbb/neovim-tailwind-classes-fold",
 	"folke/neodev.nvim",
 	"ellisonleao/glow.nvim",
-	"github/copilot.vim",
-	"cormacrelf/dark-notify",
+	"wwnbb/dark-notify",
 	"lewis6991/gitsigns.nvim",
 }
