@@ -6,9 +6,14 @@ require("mini.pairs").setup()
 
 require("colorizer").setup({
 	filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact" },
-	user_default_options = {
-		tailwind = true,
-		mode = "background",
+	options = {
+		parsers = {
+			tailwind = {
+				enable = true,
+				mode = "background",
+			},
+			css = true,
+		},
 	},
 })
 

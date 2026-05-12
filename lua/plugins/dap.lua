@@ -5,10 +5,14 @@ return {
 		"leoluz/nvim-dap-go",
 		config = function()
 			require("dap-go").setup({
-				delve = {
-					build_flags = "-tags=unit",
-				},
+				delve = {},
 			})
+		end,
+	},
+	{
+		"mfussenegger/nvim-dap-python",
+		config = function()
+			require("dap-python").setup("uv")
 		end,
 	},
 	{
@@ -111,13 +115,6 @@ return {
 				"DapStopped",
 				{ text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" }
 			)
-		end,
-	},
-
-	{
-		"mfussenegger/nvim-dap-python",
-		config = function()
-			require("dap-python").setup("~/.virtualenvs/debugpy/bin/python")
 		end,
 	},
 

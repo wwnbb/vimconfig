@@ -1,0 +1,36 @@
+return {
+	-- "goolord/alpha-nvim",
+	-- config = function()
+	-- 	local dashboard = require("alpha.themes.dashboard")
+	-- 	dashboard.section.header.val = {
+	-- 		"                                                     ",
+	-- 		"                                                     ",
+	-- 		"                                                     ",
+	-- 		"                                                     ",
+	-- 		"                                                     ",
+	-- 		"                                                     ",
+	-- 		"                                                     ",
+	-- 		"                                                     ",
+	-- 		"                                                     ",
+	-- 		"                                                     ",
+	-- 		"                                                     ",
+	-- 		"                                                     ",
+	-- 		"                                                     ",
+	-- 		"  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
+	-- 		"  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
+	-- 		"  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
+	-- 		"  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+	-- 		"  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+	-- 		"  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+	-- 		"                                                     ",
+	-- 	}
+	-- 	vim.api.nvim_create_autocmd("FileType", {
+	-- 		pattern = "alpha",
+	-- 		callback = function()
+	-- 			vim.opt_local.fillchars = "eob: "
+	-- 		end,
+	-- 	})
+	-- 	dashboard.section.buttons.val = {}
+	-- 	require("alpha").setup(require("alpha.themes.dashboard").config)
+	-- end,
+}

@@ -1,4 +1,6 @@
 local color_utils = require("utils.colors")
+local colors = color_utils.get_colors() or {}
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "*",
 	callback = function(args)
@@ -17,7 +19,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#000000", fg = "#FFFFFF" })
 		vim.api.nvim_set_hl(0, "@variable", { fg = "#586e75" })
 
-		vim.api.nvim_set_hl(0, "AvanteSidebarWinSeparator", { bg = "#000000", fg = "#000000" })
+		vim.api.nvim_set_hl(0, "OpenCodeInputBg", { bg = colors.background_light })
 	end,
 })
 

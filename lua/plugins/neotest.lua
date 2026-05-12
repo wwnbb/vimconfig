@@ -26,18 +26,24 @@ vim.api.nvim_create_autocmd("FileType", {
 return {
 	{
 		"nvim-neotest/neotest",
-		version = "v5.8.0",
+		version = "*",
 		dependencies = {
-			{ "nvim-neotest/nvim-nio", version = "v1.9.4" },
+			{ "nvim-neotest/nvim-nio", version = "*" },
 			{ "nvim-lua/plenary.nvim", version = "*" },
 			{ "antoinemadec/FixCursorHold.nvim", version = "*" },
-			{ "nvim-treesitter/nvim-treesitter", version = "*" },
-			{ "nvim-neotest/neotest-python" },
-			{ "fredrikaverpil/neotest-golang", version = "v1.9.2" },
+			{ "nvim-neotest/neotest-python", version = "*" },
+			{ "fredrikaverpil/neotest-golang", version = "*" },
 		},
 		config = function()
 			require("neotest").setup({
+				log_level = vim.log.levels.DEBUG,
+				floating = {
+					border = "rounded", -- "double", "rounded", "solid", etc.
+					max_height = 0.6,
+					max_width = 0.6,
+				},
 				adapters = {
+					require("rustaceanvim.neotest"),
 					require("neotest-golang")({
 						runner = "gotestsum",
 					}),
@@ -46,22 +52,23 @@ return {
 						runner = "pytest",
 						python = ".venv/bin/python",
 						dap = { justMyCode = false },
+						pytest_discover_instances = true,
 					}),
 				},
-				icons = {
-					child_indent = "│",
-					child_prefix = "├",
-					collapsed = "─",
-					expanded = "╮",
-					failed = "✖",
-					final_child_indent = " ",
-					final_child_prefix = "╰",
-					non_collapsible = "─",
-					passed = "✔",
-					running = "",
-					skipped = "☇",
-					unknown = "?",
-				},
+				-- icons = {
+				-- 	child_indent = "│",
+				-- 	child_prefix = "├",
+				-- 	collapsed = "─",
+				-- 	expanded = "╮",
+				-- 	failed = "✖",
+				-- 	final_child_indent = " ",
+				-- 	final_child_prefix = "╰",
+				-- 	non_collapsible = "─",
+				-- 	passed = "✔",
+				-- 	running = "",
+				-- 	skipped = "☇",
+				-- 	unknown = "?",
+				-- },
 			})
 		end,
 	},

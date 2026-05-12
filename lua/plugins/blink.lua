@@ -50,13 +50,18 @@ return {
 		},
 		signature = { window = { border = border_chars_outer_thick } },
 		sources = {
-			default = { "copilot", "lsp", "path", "snippets", "buffer" },
+			default = { "copilot", "lazydev", "lsp", "path", "snippets", "buffer" },
 			providers = {
 				copilot = {
 					name = "copilot",
 					module = "blink-copilot",
 					score_offset = 100,
 					async = true,
+				},
+				lazydev = {
+					name = "LazyDev",
+					module = "lazydev.integrations.blink",
+					score_offset = 100,
 				},
 			},
 		},

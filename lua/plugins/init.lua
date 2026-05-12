@@ -14,7 +14,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		version = "*",
+		branch = "main",
 	},
 	{
 		"krivahtoo/silicon.nvim",
@@ -51,7 +51,6 @@ return {
 	"stevearc/dressing.nvim",
 	{
 		"danymat/neogen",
-		dependencies = "nvim-treesitter/nvim-treesitter",
 		config = function()
 			require("neogen").setup({})
 		end,
@@ -60,9 +59,38 @@ return {
 		"akinsho/git-conflict.nvim",
 		version = "*",
 	},
-	"NvChad/nvim-colorizer.lua",
-	"folke/neodev.nvim",
+	{
+		"catgoose/nvim-colorizer.lua",
+		init = function()
+			vim.opt.termguicolors = true
+		end,
+	},
 	"ellisonleao/glow.nvim",
 	"wwnbb/dark-notify",
 	"lewis6991/gitsigns.nvim",
+
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^6",
+		lazy = false,
+	},
+	{
+		"michaelb/sniprun",
+		branch = "master",
+
+		build = "sh install.sh",
+		-- do 'sh install.sh 1' if you want to force compile locally
+		-- (instead of fetching a binary from the github release). Requires Rust >= 1.65
+
+		config = function()
+			require("sniprun").setup({
+				display = { "TempFloatingWindow" },
+			})
+		end,
+	},
+	{
+		"mrcjkb/rustaceanvim",
+		version = "^7",
+		lazy = false,
+	},
 }

@@ -8,12 +8,44 @@ api.nvim_create_autocmd("FileType", {
 	command = [[nnoremap <buffer><silent> q :close<CR>]],
 })
 
+vim.opt.fillchars:append({ eob = " " })
 -- Disable highlight on lsp hover
 vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = function()
 		vim.api.nvim_set_hl(0, "LspReferenceTarget", {})
 	end,
 })
+
+-- NEOVIDE CONFIGURATION
+
+if vim.g.neovide then
+	-- DISABLE ANIMATIONS
+
+	vim.g.neovide_position_animation_length = 0
+	vim.g.neovide_cursor_animation_length = 0.00
+	vim.g.neovide_cursor_trail_size = 0
+	vim.g.neovide_cursor_animate_in_insert_mode = false
+	vim.g.neovide_cursor_animate_command_line = false
+	vim.g.neovide_scroll_animation_far_lines = 0
+	vim.g.neovide_scroll_animation_length = 0.00
+
+	-- FONT CONFIGURATION
+	-- SauceCodePro Nerd Font
+	-- SemiBold
+	-- 14
+	vim.o.guifont = "SauceCodePro Nerd Font:h14"
+end
+
+-- AUTO LOAD EXTERNAL CHANGES
+vim.opt.autoread = true
+
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+	pattern = "*",
+	command = "checktime",
+})
+
+-- optional: check more frequently while idle (default is often 4000ms)
+vim.opt.updatetime = 500
 
 -- No more stupid wrapping
 vim.opt.wrap = false
@@ -46,7 +78,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Set colors in terminal
--- vim.opt.termguicolors = true
+vim.opt.termguicolors = true
 -- vim.opt.background = "light"
 -- vim.cmd("colorscheme NeoSolarized")
 

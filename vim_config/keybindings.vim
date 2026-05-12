@@ -52,6 +52,7 @@ nnoremap <silent><leader>tf :lua require("neotest").run.run(vim.fn.expand("%"))<
 nnoremap <silent><leader>tw :lua require("neotest").run.run({suite=true})<CR>
 nnoremap <silent><leader>tm :lua require("neotest").summary.toggle()<CR>
 nnoremap <silent><leader>ta :lua require("neotest").run.attach()<CR>
+nnoremap <silent><leader>ts :lua require("neotest").run.stop()<CR>
 
 
 
@@ -93,3 +94,5 @@ let g:copilot_filetypes = {  'typr': v:false,  }
 
 vmap <S-Tab>  mm<`m:<C-U>exec "normal ".&shiftwidth."h"<CR>mmgv`m
 vmap <Tab>    mm>`m:<C-U>exec "normal ".&shiftwidth."l"<CR>mmgv`m
+
+
