@@ -3,7 +3,6 @@ return {
 	"sheerun/vim-polyglot",
 	"isobit/vim-caddyfile",
 	"neovim/nvim-lspconfig",
-	"SirVer/ultisnips",
 	{
 		"L3MON4D3/LuaSnip",
 		build = "make install_jsregexp",
@@ -26,8 +25,6 @@ return {
 		"nvim-telescope/telescope-fzf-native.nvim",
 		build = "make",
 	},
-	"sopa0/telescope-makefile",
-
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
@@ -65,29 +62,9 @@ return {
 			vim.opt.termguicolors = true
 		end,
 	},
-	"ellisonleao/glow.nvim",
-	"wwnbb/dark-notify",
+	"cormacrelf/dark-notify",
 	"lewis6991/gitsigns.nvim",
 
-	{
-		"mrcjkb/rustaceanvim",
-		version = "^6",
-		lazy = false,
-	},
-	{
-		"michaelb/sniprun",
-		branch = "master",
-
-		build = "sh install.sh",
-		-- do 'sh install.sh 1' if you want to force compile locally
-		-- (instead of fetching a binary from the github release). Requires Rust >= 1.65
-
-		config = function()
-			require("sniprun").setup({
-				display = { "TempFloatingWindow" },
-			})
-		end,
-	},
 	{
 		"mrcjkb/rustaceanvim",
 		version = "^7",

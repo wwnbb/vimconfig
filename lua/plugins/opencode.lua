@@ -8,7 +8,7 @@ return {
 				shutdown_on_exit = true,
 			},
 			chat = {
-				layout = "horizontal", -- "vertical" | "horizontal" | "float"
+				layout = "float", -- "vertical" | "horizontal" | "float"
 				-- position = "", -- "left" | "right" | "top" | "bottom"
 				-- width = 80,
 				-- height = 20,

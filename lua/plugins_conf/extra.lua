@@ -17,12 +17,6 @@ require("colorizer").setup({
 	},
 })
 
-require("glow").setup({
-	border = "rounded",
-	style = "dark",
-	width = 120,
-})
-
 require("dark_notify").run({
 	schemes = {
 		-- you can use a different colorscheme for each

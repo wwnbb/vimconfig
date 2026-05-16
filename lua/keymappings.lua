@@ -139,21 +139,6 @@ keyset("n", "<space><space>", function()
 	vim.cmd("Noice dismiss")
 end, { noremap = true, silent = true })
 
-local sniprun = require("sniprun")
-local sniprun_display = require("sniprun.display")
-keyset("n", "<leader>rr", sniprun.run, { noremap = true, silent = true })
-keyset("v", "<leader>rr", function()
-	sniprun.run("v")
-end, { noremap = true, silent = true })
-
-keyset({ "n", "v" }, "<leader>rs", function()
-	sniprun.reset()
-	sniprun.clear_repl()
-end, { noremap = true, silent = true })
-keyset({ "n", "v" }, "<leader>rc", sniprun_display.close_all, { noremap = true, silent = true })
-
--- Opencode
-
 local function open_input_at_end()
 	local input = require("opencode.ui.input")
 	local oc = require("opencode")
