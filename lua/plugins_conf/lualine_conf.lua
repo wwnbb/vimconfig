@@ -195,6 +195,19 @@ local function create_config()
 		end,
 	})
 
+	-- OpenCode component
+	ins_right({
+		function()
+			local ok, opencode = pcall(require, "opencode")
+			if ok and type(opencode.lualine_component) == "function" then
+				return opencode.lualine_component()
+			end
+			return ""
+		end,
+		cond = conditions.hide_in_width,
+		color = { fg = colors.text, bg = colors.background, gui = "bold" },
+	})
+
 	ins_right({
 		"o:encoding",
 		fmt = string.upper,

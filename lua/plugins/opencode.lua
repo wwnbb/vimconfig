@@ -1,5 +1,9 @@
+local color_utils = require("utils.colors")
+local colors = color_utils.get_colors() or {}
+
 return {
 	"wwnbb/opencode.nvim",
+	dev = true,
 	build = "sh scripts/install-tools.sh",
 	config = function()
 		require("opencode").setup({
@@ -16,6 +20,18 @@ return {
 				message_display = {
 					user_prefix = "│ ",
 					multiline_prefix = true,
+				},
+				session_tabs = {
+					colors = {
+						active_fg = colors.text_highlight,
+						active_bg = colors.text,
+						inactive_fg = colors.text,
+						inactive_bg = colors.text_highlight,
+						running_fg = "#00F000",
+						waiting_fg = colors.yellow,
+						error_fg = colors.red,
+						idle_fg = colors.cyan,
+					},
 				},
 			},
 

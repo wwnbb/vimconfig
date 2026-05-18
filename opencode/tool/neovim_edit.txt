@@ -1,6 +1,6 @@
 Exact string replacement in existing files.
 
-cRITICAL!!!!:
+CRITICAL!!!!:
 - User may edit during review. Final disk content wins. Re-read after review.
 - Treat user review edits as intentional, not mistakes. Do not "fix" or revert them unless user explicitly asks.
 - Never auto-retry `rejected`/`partial`/user-edited result unless user asks.
